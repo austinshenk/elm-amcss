@@ -1,0 +1,14 @@
+{
+  "name": "elm-amcss",
+  "version": "1.0.0",
+  "description": "Elm AMCSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.8.0"
+  }
+}
