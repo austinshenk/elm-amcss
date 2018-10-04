@@ -1,27 +1,12 @@
-module Amcss.Component.Button exposing (component, componentWithAttributes, css, defaultComponent, disabled, displayGhost, displayNormal, roundedAll, roundedNone, roundedSome, sizeLarge, sizeMedium, sizeSmall)
+module Amcss.Component.Button exposing (css, disabled, displayGhost, displayNormal, roundedAll, roundedNone, roundedSome, sizeLarge, sizeMedium, sizeSmall)
 
-import Amcss exposing (Component, Property, attribute, defaultProperty, element, property)
+import Amcss.Component exposing (Component, Property, attribute, defaultProperty, element, property)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html
 import Css exposing (..)
 import Css.Global
 import Html.Styled as Html
-
-
-defaultComponent : List (Html.Html msg) -> Html.Html msg
-defaultComponent =
-    component []
-
-
-component : List Property -> List (Html.Html msg) -> Html.Html msg
-component properties =
-    componentWithAttributes properties []
-
-
-componentWithAttributes : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
-componentWithAttributes =
-    Amcss.Html.componentToElement Html.button
 
 
 css : List Css.Global.Snippet
@@ -82,7 +67,7 @@ displayNormal =
 
 displayGhost : Property
 displayGhost =
-    display Amcss.property "2"
+    display Amcss.Component.property "2"
 
 
 roundedNone : Property
@@ -92,12 +77,12 @@ roundedNone =
 
 roundedSome : Property
 roundedSome =
-    rounded Amcss.property "2"
+    rounded Amcss.Component.property "2"
 
 
 roundedAll : Property
 roundedAll =
-    rounded Amcss.property "3"
+    rounded Amcss.Component.property "3"
 
 
 sizeSmall : Property
@@ -107,12 +92,12 @@ sizeSmall =
 
 sizeMedium : Property
 sizeMedium =
-    size Amcss.property "2"
+    size Amcss.Component.property "2"
 
 
 sizeLarge : Property
 sizeLarge =
-    size Amcss.property "3"
+    size Amcss.Component.property "3"
 
 
 disabled : Property

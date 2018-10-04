@@ -3,6 +3,9 @@ module Amcss exposing
     , Property
     , attribute
     , attributeString
+    , button
+    , button2
+    , button3
     , component
     , defaultAttribute
     , defaultProperty
@@ -11,6 +14,8 @@ module Amcss exposing
     , propertyToAttributeString
     )
 
+import Amcss.Component.Button as Button
+import Amcss.Html
 import Amcss.Types
 import Html.Styled as Html
 
@@ -72,3 +77,18 @@ propertyToAttributeString prop =
 
         Amcss.Types.DefaultAttribute _ name _ ->
             name
+
+
+button : List (Html.Html msg) -> Html.Html msg
+button =
+    button2 []
+
+
+button2 : List Property -> List (Html.Html msg) -> Html.Html msg
+button2 properties =
+    button3 properties []
+
+
+button3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+button3 =
+    Amcss.Html.componentToElement Html.button

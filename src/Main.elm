@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import Amcss
 import Amcss.Component.Button as Button
 import Amcss.Component.Flyover as Flyover
 import Amcss.Component.Flyover.Backdrop as Backdrop
@@ -110,42 +111,42 @@ view model =
                     [ Amcss.Html.component Group.component
                     , Amcss.Html.attribute Group.directionRow
                     ]
-                    [ tooltipTopLeft (Button.componentWithAttributes [])
+                    [ tooltipTopLeft (Amcss.button3 [])
                         model.tooltip
                         Popup
                         "popup1"
                         (text "Top Left")
                         []
                         [ text "Button" ]
-                    , tooltipTop (Button.componentWithAttributes [])
+                    , tooltipTop (Amcss.button3 [])
                         model.tooltip
                         Popup
                         "popup2"
                         (text "Top")
                         []
                         [ text "Button" ]
-                    , tooltipTopRight (Button.componentWithAttributes [])
+                    , tooltipTopRight (Amcss.button3 [])
                         model.tooltip
                         Popup
                         "popup3"
                         (text "Top Right")
                         []
                         [ text "Button" ]
-                    , tooltipBottomLeft (Button.componentWithAttributes [])
+                    , tooltipBottomLeft (Amcss.button3 [])
                         model.tooltip
                         Popup
                         "popup4"
                         (text "Bottom Left")
                         []
                         [ text "Button" ]
-                    , tooltipBottom (Button.componentWithAttributes [])
+                    , tooltipBottom (Amcss.button3 [])
                         model.tooltip
                         Popup
                         "popup5"
                         (text "Bottom")
                         []
                         [ text "Button" ]
-                    , tooltipBottomRight (Button.componentWithAttributes [])
+                    , tooltipBottomRight (Amcss.button3 [])
                         model.tooltip
                         Popup
                         "popup6"
@@ -160,7 +161,7 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     ]
                     [ dropdown
-                        (Button.componentWithAttributes [])
+                        (Amcss.button3 [])
                         model.dropdown
                         Popup
                         "dropdown1"
@@ -174,7 +175,7 @@ view model =
                             ]
                         )
                     , dropdownRight
-                        (Button.componentWithAttributes [])
+                        (Amcss.button3 [])
                         model.dropdown
                         Popup
                         "dropdown2"
@@ -188,7 +189,7 @@ view model =
                             ]
                         )
                     , dropdownRight
-                        (Button.componentWithAttributes [])
+                        (Amcss.button3 [])
                         model.dropdown
                         Popup
                         "dropdown3"
@@ -279,18 +280,18 @@ view model =
                     [ Amcss.Html.component Group.component
                     , Amcss.Html.attribute Group.directionRow
                     ]
-                    [ Button.defaultComponent
+                    [ Amcss.button
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedAll ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.displayGhost ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.disabled ]
                         [ text "Button" ]
                     ]
@@ -298,25 +299,25 @@ view model =
                     [ Amcss.Html.component Group.component
                     , Amcss.Html.attribute Group.directionRow
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.sizeMedium ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.roundedSome
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.roundedAll
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.displayGhost
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.disabled
                         ]
@@ -326,25 +327,25 @@ view model =
                     [ Amcss.Html.component Group.component
                     , Amcss.Html.attribute Group.directionRow
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.sizeLarge ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.roundedSome
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.roundedAll
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.displayGhost
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.disabled
                         ]
@@ -355,18 +356,18 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     , Amcss.Html.attribute Group.homogenousEnable
                     ]
-                    [ Button.defaultComponent
+                    [ Amcss.button
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedAll ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.displayGhost ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.disabled ]
                         [ text "Button" ]
                     ]
@@ -375,25 +376,25 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     , Amcss.Html.attribute Group.homogenousEnable
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.sizeMedium ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.roundedSome
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.roundedAll
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.displayGhost
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeMedium
                         , Button.disabled
                         ]
@@ -404,25 +405,25 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     , Amcss.Html.attribute Group.homogenousEnable
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.sizeLarge ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.roundedSome
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.roundedAll
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.displayGhost
                         ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.sizeLarge
                         , Button.disabled
                         ]
@@ -433,13 +434,13 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     , Amcss.Html.attribute Group.homogenousEnable
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome
                         , Button.disabled
                         ]
@@ -450,13 +451,13 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     , Amcss.Html.attribute Group.homogenousEnable
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.roundedAll ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedAll ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedAll
                         , Button.disabled
                         ]
@@ -468,13 +469,13 @@ view model =
                     , Amcss.Html.attribute Group.homogenousEnable
                     , HtmlAttributes.attribute "style" "width: 30%"
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome
                         , Button.disabled
                         ]
@@ -484,13 +485,13 @@ view model =
                     [ Amcss.Html.component Group.component
                     , Amcss.Html.attribute Group.directionColumn
                     ]
-                    [ Button.component
+                    [ Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
-                    , Button.component
+                    , Amcss.button2
                         [ Button.roundedSome
                         , Button.disabled
                         ]
@@ -522,7 +523,7 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     , Amcss.Html.attribute Group.homogenousEnable
                     ]
-                    [ Button.defaultComponent [ text "Do something" ]
+                    [ Amcss.button [ text "Do something" ]
                     , input
                         [ Amcss.Html.attribute Form.typeOfText
                         , HtmlAttributes.attribute "value" "Text"
@@ -533,7 +534,7 @@ view model =
                     [ Amcss.Html.component Group.component
                     , Amcss.Html.attribute Group.directionRow
                     ]
-                    [ Button.defaultComponent [ text "Do something" ]
+                    [ Amcss.button [ text "Do something" ]
                     , input
                         [ Amcss.Html.attribute Form.typeOfText
                         , HtmlAttributes.attribute "value" "Text"
