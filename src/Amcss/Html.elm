@@ -1,6 +1,6 @@
 module Amcss.Html exposing (attribute, component, componentToElement)
 
-import Amcss exposing (..)
+import Amcss.Component exposing (..)
 import Amcss.Types
 import Html.Styled as Html
 import Html.Styled.Attributes
@@ -37,7 +37,7 @@ component comp =
                 Amcss.Types.Element _ ->
                     ""
     in
-    Html.Styled.Attributes.attribute Amcss.attributeString name
+    Html.Styled.Attributes.attribute Amcss.Component.attributeString name
 
 
 componentToElement : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg

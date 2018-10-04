@@ -1,6 +1,6 @@
 module Amcss.Css exposing (component, selector, selectorNotExist)
 
-import Amcss exposing (..)
+import Amcss.Component exposing (..)
 import Amcss.Types
 import Css exposing (..)
 import Css.Global exposing (..)
@@ -15,10 +15,10 @@ componentToString : Amcss.Types.Component -> String
 componentToString comp =
     case comp of
         Amcss.Types.Component name ->
-            "[" ++ Amcss.attributeString ++ "='" ++ name ++ "']"
+            "[" ++ Amcss.Component.attributeString ++ "='" ++ name ++ "']"
 
         Amcss.Types.Element element ->
-            element ++ propertyExists ("[" ++ Amcss.attributeString ++ "]") False
+            element ++ propertyExists ("[" ++ Amcss.Component.attributeString ++ "]") False
 
 
 selector : List Amcss.Types.Property -> List Style -> Snippet
