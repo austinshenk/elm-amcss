@@ -3,6 +3,7 @@
 .DS_Store
 /build/css.js
 /build/index.js
+/build/index.uglified.js
 /build/index.css
 /dist/*.css
 /dist/*.js
