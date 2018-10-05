@@ -10,13 +10,17 @@ module Amcss exposing
     , defaultAttribute
     , defaultProperty
     , element
+    , group
+    , group2
+    , group3
+    , group4
     , link
     , link2
     , link3
     , property
-    , propertyToAttribute
     )
 
+import Amcss.Component
 import Amcss.Types
 import Html.Styled as Html
 import Html.Styled.Attributes
@@ -24,7 +28,7 @@ import Html.Styled.Attributes
 
 attributeString : String
 attributeString =
-    "a-m"
+    Amcss.Component.attributeString
 
 
 type alias Component =
@@ -33,12 +37,12 @@ type alias Component =
 
 component : String -> Component
 component =
-    Amcss.Types.Component
+    Amcss.Component.component
 
 
 element : String -> Component
 element =
-    Amcss.Types.Element
+    Amcss.Component.element
 
 
 type alias Property =
@@ -47,51 +51,27 @@ type alias Property =
 
 property : Component -> String -> String -> Property
 property =
-    Amcss.Types.Property
+    Amcss.Component.property
 
 
 defaultProperty : Component -> String -> String -> Property
 defaultProperty =
-    Amcss.Types.DefaultProperty
+    Amcss.Component.defaultProperty
 
 
 attribute : Component -> String -> String -> Property
 attribute =
-    Amcss.Types.Attribute
+    Amcss.Component.attribute
 
 
 defaultAttribute : Component -> String -> String -> Property
 defaultAttribute =
-    Amcss.Types.DefaultAttribute
+    Amcss.Component.defaultAttribute
 
 
-componentToElement : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
-componentToElement elem properties attributes =
-    let
-        propertiesAsAttributes =
-            List.map propertyToAttribute properties
-    in
-    elem (propertiesAsAttributes ++ attributes)
-
-
-propertyToAttribute : Amcss.Types.Property -> Html.Attribute msg
-propertyToAttribute prop =
-    let
-        ( name, value ) =
-            case prop of
-                Amcss.Types.Property _ n v ->
-                    ( "a-" ++ n, v )
-
-                Amcss.Types.DefaultProperty _ n v ->
-                    ( "a-" ++ n, v )
-
-                Amcss.Types.Attribute _ n v ->
-                    ( n, v )
-
-                Amcss.Types.DefaultAttribute _ n v ->
-                    ( n, v )
-    in
-    Html.Styled.Attributes.attribute name value
+componentToElement : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> Maybe Component -> List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+componentToElement =
+    Amcss.Component.componentToElement
 
 
 button : List (Html.Html msg) -> Html.Html msg
@@ -106,7 +86,7 @@ button2 properties =
 
 button3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
 button3 =
-    componentToElement Html.button
+    Amcss.Component.componentToElement Html.button Nothing
 
 
 link : List (Html.Html msg) -> Html.Html msg
@@ -121,4 +101,24 @@ link2 properties =
 
 link3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
 link3 =
-    componentToElement Html.a
+    Amcss.Component.componentToElement Html.a Nothing
+
+
+group : List (Html.Html msg) -> Html.Html msg
+group body =
+    group2 Html.div body
+
+
+group2 : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List (Html.Html msg) -> Html.Html msg
+group2 elem body =
+    group3 elem [] body
+
+
+group3 : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List Property -> List (Html.Html msg) -> Html.Html msg
+group3 elem properties body =
+    group4 elem properties [] body
+
+
+group4 : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+group4 elem properties attributes body =
+    Amcss.Component.componentToElement elem Nothing properties attributes body

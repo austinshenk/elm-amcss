@@ -88,10 +88,9 @@ view : Model -> Html Msg
 view model =
     div [ Amcss.Html.component Window.component ]
         [ header []
-            [ nav
-                [ Amcss.Html.component Group.component
-                , Amcss.Html.attribute Group.directionRow
-                , Amcss.Html.attribute Group.justifyContentCenter
+            [ Amcss.group3 nav
+                [ Group.directionRow
+                , Group.justifyContentCenter
                 ]
                 [ Amcss.link2 [ Link.hrefVoid, Link.active ]
                     [ text "Nav 1" ]

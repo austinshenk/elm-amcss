@@ -1,4 +1,4 @@
-module Amcss.Component.Link exposing (active, component, css, hrefNothing, hrefPound, hrefVoid)
+module Amcss.Component.Link exposing (active, css, hrefNothing, hrefPound, hrefVoid)
 
 import Amcss exposing (attribute, element, property)
 import Amcss.Css
@@ -8,7 +8,7 @@ import Css.Global exposing (..)
 
 
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Css.component link
         [ borderBottom3 (px 2) solid StyleGuide.borderColor
         , borderTopLeftRadius (px 2)
         , borderTopRightRadius (px 2)
@@ -38,12 +38,12 @@ css =
     ]
 
 
-component =
+link =
     Amcss.element "a"
 
 
 href =
-    attribute component "href"
+    attribute link "href"
 
 
 hrefNothing =
@@ -59,4 +59,4 @@ hrefVoid =
 
 
 active =
-    Amcss.property component "a" ""
+    Amcss.property link "a" ""

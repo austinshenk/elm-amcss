@@ -28,7 +28,7 @@ module Amcss.Component.Group exposing
     , wrapReverse
     )
 
-import Amcss exposing (component, defaultProperty, property)
+import Amcss.Component exposing (component, defaultProperty, property)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Css exposing (..)
@@ -124,35 +124,35 @@ css =
 
 
 component =
-    Amcss.component "g"
+    Amcss.Component.component "g"
 
 
 alignContent =
-    Amcss.property component "a"
+    Amcss.Component.property component "a"
 
 
 alignItems =
-    Amcss.property component "i"
+    Amcss.Component.property component "i"
 
 
 direction =
-    Amcss.property component "d"
+    Amcss.Component.property component "d"
 
 
 justifyContent =
-    Amcss.property component "j"
+    Amcss.Component.property component "j"
 
 
 spacing =
-    Amcss.property component "s"
+    Amcss.Component.property component "s"
 
 
 wrap =
-    Amcss.property component "w"
+    Amcss.Component.property component "w"
 
 
 homogenous =
-    Amcss.property component "h"
+    Amcss.Component.property component "h"
 
 
 alignContentStretch =
