@@ -1,12 +1,13 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const fu = require('file-url');
 let _browser;
 let _page;
 let css;
 puppeteer.launch()
 .then(browser => _browser = browser)
 .then(browser => _page = browser.newPage())
-.then(page => page.goto(__dirname + '/css.html'))
+.then(page => page.goto(fu(__dirname + '/css.html')))
 .then(() => _page)
 .then(page => {
   return page.evaluate(() => {
