@@ -1,6 +1,6 @@
 module Amcss.Component.Button exposing (css, disabled, displayGhost, displayNormal, roundedAll, roundedNone, roundedSome, sizeLarge, sizeMedium, sizeSmall)
 
-import Amcss.Component exposing (Component, Property, attribute, defaultProperty, element, property)
+import Amcss exposing (Component, Property, attribute, defaultProperty, element, property)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html
@@ -67,7 +67,7 @@ displayNormal =
 
 displayGhost : Property
 displayGhost =
-    display Amcss.Component.property "2"
+    display Amcss.property "2"
 
 
 roundedNone : Property
@@ -77,12 +77,12 @@ roundedNone =
 
 roundedSome : Property
 roundedSome =
-    rounded Amcss.Component.property "2"
+    rounded Amcss.property "2"
 
 
 roundedAll : Property
 roundedAll =
-    rounded Amcss.Component.property "3"
+    rounded Amcss.property "3"
 
 
 sizeSmall : Property
@@ -92,12 +92,12 @@ sizeSmall =
 
 sizeMedium : Property
 sizeMedium =
-    size Amcss.Component.property "2"
+    size Amcss.property "2"
 
 
 sizeLarge : Property
 sizeLarge =
-    size Amcss.Component.property "3"
+    size Amcss.property "3"
 
 
 disabled : Property

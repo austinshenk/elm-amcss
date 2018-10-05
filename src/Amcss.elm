@@ -10,14 +10,21 @@ module Amcss exposing
     , defaultAttribute
     , defaultProperty
     , element
+    , link
+    , link2
+    , link3
     , property
-    , propertyToAttributeString
+    , propertyToAttribute
     )
 
-import Amcss.Component.Button as Button
-import Amcss.Html
 import Amcss.Types
 import Html.Styled as Html
+import Html.Styled.Attributes
+
+
+attributeString : String
+attributeString =
+    "a-m"
 
 
 type alias Component =
@@ -58,25 +65,33 @@ defaultAttribute =
     Amcss.Types.DefaultAttribute
 
 
-attributeString : String
-attributeString =
-    "a-m"
+componentToElement : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+componentToElement elem properties attributes =
+    let
+        propertiesAsAttributes =
+            List.map propertyToAttribute properties
+    in
+    elem (propertiesAsAttributes ++ attributes)
 
 
-propertyToAttributeString : Property -> String
-propertyToAttributeString prop =
-    case prop of
-        Amcss.Types.Property _ name _ ->
-            "a-" ++ name
+propertyToAttribute : Amcss.Types.Property -> Html.Attribute msg
+propertyToAttribute prop =
+    let
+        ( name, value ) =
+            case prop of
+                Amcss.Types.Property _ n v ->
+                    ( "a-" ++ n, v )
 
-        Amcss.Types.DefaultProperty _ name _ ->
-            "a-" ++ name
+                Amcss.Types.DefaultProperty _ n v ->
+                    ( "a-" ++ n, v )
 
-        Amcss.Types.Attribute _ name _ ->
-            name
+                Amcss.Types.Attribute _ n v ->
+                    ( n, v )
 
-        Amcss.Types.DefaultAttribute _ name _ ->
-            name
+                Amcss.Types.DefaultAttribute _ n v ->
+                    ( n, v )
+    in
+    Html.Styled.Attributes.attribute name value
 
 
 button : List (Html.Html msg) -> Html.Html msg
@@ -91,4 +106,19 @@ button2 properties =
 
 button3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
 button3 =
-    Amcss.Html.componentToElement Html.button
+    componentToElement Html.button
+
+
+link : List (Html.Html msg) -> Html.Html msg
+link =
+    link2 []
+
+
+link2 : List Property -> List (Html.Html msg) -> Html.Html msg
+link2 properties =
+    link3 properties []
+
+
+link3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+link3 =
+    componentToElement Html.a

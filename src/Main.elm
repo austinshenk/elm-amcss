@@ -93,11 +93,11 @@ view model =
                 , Amcss.Html.attribute Group.directionRow
                 , Amcss.Html.attribute Group.justifyContentCenter
                 ]
-                [ a [ Amcss.Html.attribute Link.hrefVoid, Amcss.Html.attribute Link.active ]
+                [ Amcss.link2 [ Link.hrefVoid, Link.active ]
                     [ text "Nav 1" ]
-                , a [ Amcss.Html.attribute Link.hrefVoid ]
+                , Amcss.link2 [ Link.hrefVoid ]
                     [ text "Nav 2" ]
-                , a [ Amcss.Html.attribute Link.hrefVoid ]
+                , Amcss.link2 [ Link.hrefVoid ]
                     [ text "Nav 3" ]
                 ]
             ]
@@ -169,9 +169,9 @@ view model =
                         [ text "Button" ]
                         (div
                             [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.spacingDisable ]
-                            [ a [ Amcss.Html.attribute Link.hrefVoid ] [ text "First Entry" ]
-                            , a [ Amcss.Html.attribute Link.hrefVoid ] [ text "Second Entry" ]
-                            , a [ Amcss.Html.attribute Link.hrefVoid ] [ text "Third Entry" ]
+                            [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
+                            , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
+                            , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
                             ]
                         )
                     , dropdownRight
@@ -183,9 +183,9 @@ view model =
                         [ text "Button" ]
                         (div
                             [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.spacingDisable ]
-                            [ a [ Amcss.Html.attribute Link.hrefVoid ] [ text "First Entry" ]
-                            , a [ Amcss.Html.attribute Link.hrefVoid ] [ text "Second Entry" ]
-                            , a [ Amcss.Html.attribute Link.hrefVoid ] [ text "Third Entry" ]
+                            [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
+                            , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
+                            , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
                             ]
                         )
                     , dropdownRight
@@ -197,9 +197,9 @@ view model =
                         [ text "Button" ]
                         (div
                             [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.spacingDisable ]
-                            [ a [ Amcss.Html.attribute Link.hrefVoid ] [ text "First Entry" ]
-                            , a [ Amcss.Html.attribute Link.hrefVoid ] [ text "Second Entry" ]
-                            , a [ Amcss.Html.attribute Link.hrefVoid ] [ text "Third Entry" ]
+                            [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
+                            , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
+                            , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
                             ]
                         )
                     ]
@@ -208,17 +208,17 @@ view model =
                 [ h2 []
                     [ text "Breadcrumb" ]
                 , div [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.directionRow ]
-                    [ a [ Amcss.Html.attribute Link.hrefVoid ]
+                    [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Home" ]
                     , Html.span
                         []
                         [ text "/" ]
-                    , a [ Amcss.Html.attribute Link.hrefVoid ]
+                    , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Library" ]
                     , Html.span
                         []
                         [ text "/" ]
-                    , a [ Amcss.Html.attribute Link.hrefVoid ]
+                    , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Data" ]
                     ]
                 , div [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.directionRow ]
@@ -241,11 +241,11 @@ view model =
                     [ Amcss.Html.component Group.component
                     , Amcss.Html.attribute Group.directionRow
                     ]
-                    [ a [ Amcss.Html.attribute Link.hrefVoid ]
+                    [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
-                    , a [ Amcss.Html.attribute Link.hrefPound ]
+                    , Amcss.link2 [ Link.hrefPound ]
                         [ text "Link" ]
-                    , a []
+                    , Amcss.link
                         [ text "Link" ]
                     ]
                 , div
@@ -253,11 +253,11 @@ view model =
                     , Amcss.Html.attribute Group.directionRow
                     , Amcss.Html.attribute Group.spacingDisable
                     ]
-                    [ a [ Amcss.Html.attribute Link.hrefVoid ]
+                    [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
-                    , a [ Amcss.Html.attribute Link.hrefVoid ]
+                    , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
-                    , a [ Amcss.Html.attribute Link.hrefVoid ]
+                    , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
                     ]
                 , div
@@ -265,11 +265,11 @@ view model =
                     , Amcss.Html.attribute Group.directionColumn
                     , Amcss.Html.attribute Group.spacingDisable
                     ]
-                    [ a [ Amcss.Html.attribute Link.hrefVoid ]
+                    [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
-                    , a [ Amcss.Html.attribute Link.hrefVoid ]
+                    , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
-                    , a [ Amcss.Html.attribute Link.hrefVoid ]
+                    , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
                     ]
                 ]
