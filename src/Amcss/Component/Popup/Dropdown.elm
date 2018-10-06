@@ -1,10 +1,11 @@
 module Amcss.Component.Popup.Dropdown exposing (css, dropdown, dropdownRight)
 
-import Amcss exposing (Component, component)
+import Amcss.Component
 import Amcss.Component.Popup as Popup exposing (Align(..), Anchor(..), Model, Msg(..), Position(..), Properties)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html
+import Amcss.Types
 import Css exposing (..)
 import Css.Global exposing (..)
 import Html.Styled as Html exposing (..)
@@ -29,9 +30,9 @@ css =
     ]
 
 
-component : Component
+component : Amcss.Types.Component
 component =
-    Amcss.component "d"
+    Amcss.Component.component "d"
 
 
 view : Html a -> Html a

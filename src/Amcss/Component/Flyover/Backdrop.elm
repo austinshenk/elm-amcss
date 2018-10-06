@@ -1,6 +1,6 @@
 module Amcss.Component.Flyover.Backdrop exposing (css)
 
-import Amcss exposing (component)
+import Amcss.Component
 import Amcss.Component.Flyover as Flyover
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
@@ -26,4 +26,4 @@ css =
 
 
 component =
-    Amcss.component "b"
+    Amcss.Component.component "b"

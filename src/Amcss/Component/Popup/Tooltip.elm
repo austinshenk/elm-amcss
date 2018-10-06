@@ -10,7 +10,7 @@ module Amcss.Component.Popup.Tooltip exposing
     , view
     )
 
-import Amcss exposing (component)
+import Amcss.Component
 import Amcss.Component.Popup as Popup exposing (..)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
@@ -74,7 +74,7 @@ css =
 
 
 component =
-    Amcss.component "t"
+    Amcss.Component.component "t"
 
 
 view : Html a -> Html a

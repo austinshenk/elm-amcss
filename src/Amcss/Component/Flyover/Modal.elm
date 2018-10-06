@@ -9,7 +9,7 @@ module Amcss.Component.Flyover.Modal exposing
     , enterTop
     )
 
-import Amcss
+import Amcss.Component
 import Amcss.Component.Flyover as Flyover
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
@@ -71,15 +71,15 @@ css =
 
 
 component =
-    Amcss.component "m"
+    Amcss.Component.component "m"
 
 
 align =
-    Amcss.property component "a"
+    Amcss.Component.property component "a"
 
 
 enter =
-    Amcss.property component "e"
+    Amcss.Component.property component "e"
 
 
 alignLeft =

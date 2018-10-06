@@ -17,7 +17,7 @@ module Amcss.Component.Flyover exposing
     , view
     )
 
-import Amcss exposing (component, defaultProperty, property)
+import Amcss.Component
 import Amcss.Css
 import Amcss.Html
 import Css exposing (..)
@@ -231,39 +231,39 @@ css =
 
 
 component =
-    Amcss.component "f"
+    Amcss.Component.component "f"
 
 
 column =
-    Amcss.property component "c"
+    Amcss.Component.property component "c"
 
 
 row =
-    Amcss.property component "r"
+    Amcss.Component.property component "r"
 
 
 fullWidth =
-    Amcss.property component "w"
+    Amcss.Component.property component "w"
 
 
 fullHeight =
-    Amcss.property component "h"
+    Amcss.Component.property component "h"
 
 
 clickThrough =
-    Amcss.property component "ct"
+    Amcss.Component.property component "ct"
 
 
 visibility =
-    Amcss.property component "v"
+    Amcss.Component.property component "v"
 
 
 overflow =
-    Amcss.property component "o"
+    Amcss.Component.property component "o"
 
 
 columnLeft =
-    defaultProperty component "c" "0"
+    Amcss.Component.defaultProperty component "c" "0"
 
 
 columnCenter =
@@ -275,7 +275,7 @@ columnRight =
 
 
 rowTop =
-    defaultProperty component "r" "0"
+    Amcss.Component.defaultProperty component "r" "0"
 
 
 rowCenter =
@@ -291,7 +291,7 @@ fullWidthEnable =
 
 
 fullWidthDisable =
-    defaultProperty component "w" "0"
+    Amcss.Component.defaultProperty component "w" "0"
 
 
 fullHeightEnable =
@@ -299,11 +299,11 @@ fullHeightEnable =
 
 
 fullHeightDisable =
-    defaultProperty component "h" "0"
+    Amcss.Component.defaultProperty component "h" "0"
 
 
 clickThroughEnable =
-    defaultProperty component "ct" "1"
+    Amcss.Component.defaultProperty component "ct" "1"
 
 
 clickThroughDisable =
@@ -319,7 +319,7 @@ invisible =
 
 
 overflowHidden =
-    defaultProperty component "o" "0"
+    Amcss.Component.defaultProperty component "o" "0"
 
 
 overflowScrollable =

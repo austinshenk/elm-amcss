@@ -22,10 +22,11 @@ module Amcss.Component.Popup exposing
     , view
     )
 
-import Amcss exposing (Property, component, defaultProperty, property)
+import Amcss.Component
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html
+import Amcss.Types exposing (Component, Property)
 import Browser.Dom exposing (..)
 import Css exposing (..)
 import Css.Global exposing (..)
@@ -412,27 +413,27 @@ animatePositionToProperty a =
 
 
 component =
-    Amcss.component "p"
+    Amcss.Component.component "p"
 
 
 visibility =
-    Amcss.property component "v"
+    Amcss.Component.property component "v"
 
 
 align_ =
-    Amcss.property component "a"
+    Amcss.Component.property component "a"
 
 
 position_ =
-    Amcss.property component "p"
+    Amcss.Component.property component "p"
 
 
 anchor_ =
-    Amcss.property component "c"
+    Amcss.Component.property component "c"
 
 
 animatePosition_ =
-    Amcss.property component "n"
+    Amcss.Component.property component "n"
 
 
 invisible =

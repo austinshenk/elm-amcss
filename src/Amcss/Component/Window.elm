@@ -5,7 +5,7 @@ module Amcss.Component.Window exposing
     , overflowScrollable
     )
 
-import Amcss exposing (component, defaultProperty, property)
+import Amcss.Component
 import Amcss.Css
 import Css exposing (..)
 
@@ -21,12 +21,12 @@ css =
 
 
 component =
-    Amcss.component "w"
+    Amcss.Component.component "w"
 
 
 overflowHidden =
-    Amcss.property component "o" "0"
+    Amcss.Component.property component "o" "0"
 
 
 overflowScrollable =
-    defaultProperty component "o" "1"
+    Amcss.Component.defaultProperty component "o" "1"
