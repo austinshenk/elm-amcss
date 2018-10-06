@@ -100,16 +100,14 @@ view model =
                     [ text "Nav 3" ]
                 ]
             ]
-        , main_ [ Amcss.Html.component Group.component ]
-            [ section [ Amcss.Html.component Group.component ]
+        , Amcss.group2 main_
+            [ Amcss.group2 section
                 [ h2 []
                     [ text "Popup" ]
                 , h3 []
                     [ text "Tooltip" ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ tooltipTopLeft (Amcss.button3 [])
                         model.tooltip
                         Popup
@@ -155,10 +153,8 @@ view model =
                     ]
                 , h3 []
                     [ text "Dropdown" ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ dropdown
                         (Amcss.button3 [])
                         model.dropdown
@@ -166,8 +162,8 @@ view model =
                         "dropdown1"
                         []
                         [ text "Button" ]
-                        (div
-                            [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.spacingDisable ]
+                        (Amcss.group3 div
+                            [ Group.spacingDisable ]
                             [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
                             , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
                             , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
@@ -180,8 +176,8 @@ view model =
                         "dropdown2"
                         []
                         [ text "Button" ]
-                        (div
-                            [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.spacingDisable ]
+                        (Amcss.group3 div
+                            [ Group.spacingDisable ]
                             [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
                             , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
                             , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
@@ -194,8 +190,8 @@ view model =
                         "dropdown3"
                         []
                         [ text "Button" ]
-                        (div
-                            [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.spacingDisable ]
+                        (Amcss.group3 div
+                            [ Group.spacingDisable ]
                             [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
                             , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
                             , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
@@ -203,10 +199,11 @@ view model =
                         )
                     ]
                 ]
-            , section [ Amcss.Html.component Group.component ]
+            , Amcss.group2 section
                 [ h2 []
                     [ text "Breadcrumb" ]
-                , div [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.directionRow ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Home" ]
                     , Html.span
@@ -220,7 +217,8 @@ view model =
                     , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Data" ]
                     ]
-                , div [ Amcss.Html.component Group.component, Amcss.Html.attribute Group.directionRow ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ Html.span []
                         [ text "Home" ]
                     , Html.span []
@@ -233,13 +231,11 @@ view model =
                         [ text "Data" ]
                     ]
                 ]
-            , section [ Amcss.Html.component Group.component ]
+            , Amcss.group2 section
                 [ h2 []
                     [ text "Link" ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
                     , Amcss.link2 [ Link.hrefPound ]
@@ -247,11 +243,8 @@ view model =
                     , Amcss.link
                         [ text "Link" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    , Amcss.Html.attribute Group.spacingDisable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow, Group.spacingDisable ]
                     [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
                     , Amcss.link2 [ Link.hrefVoid ]
@@ -259,11 +252,8 @@ view model =
                     , Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionColumn
-                    , Amcss.Html.attribute Group.spacingDisable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionColumn, Group.spacingDisable ]
                     [ Amcss.link2 [ Link.hrefVoid ]
                         [ text "Link" ]
                     , Amcss.link2 [ Link.hrefVoid ]
@@ -272,13 +262,11 @@ view model =
                         [ text "Link" ]
                     ]
                 ]
-            , section [ Amcss.Html.component Group.component ]
+            , Amcss.group2 section
                 [ h2 []
                     [ text "Button" ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ Amcss.button
                         [ text "Button" ]
                     , Amcss.button2
@@ -294,10 +282,8 @@ view model =
                         [ Button.disabled ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ Amcss.button2
                         [ Button.sizeMedium ]
                         [ text "Button" ]
@@ -322,10 +308,8 @@ view model =
                         ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ Amcss.button2
                         [ Button.sizeLarge ]
                         [ text "Button" ]
@@ -350,11 +334,8 @@ view model =
                         ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    , Amcss.Html.attribute Group.homogenousEnable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button
                         [ text "Button" ]
                     , Amcss.button2
@@ -370,11 +351,8 @@ view model =
                         [ Button.disabled ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    , Amcss.Html.attribute Group.homogenousEnable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button2
                         [ Button.sizeMedium ]
                         [ text "Button" ]
@@ -399,11 +377,8 @@ view model =
                         ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    , Amcss.Html.attribute Group.homogenousEnable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button2
                         [ Button.sizeLarge ]
                         [ text "Button" ]
@@ -428,11 +403,8 @@ view model =
                         ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    , Amcss.Html.attribute Group.homogenousEnable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
@@ -445,11 +417,8 @@ view model =
                         ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    , Amcss.Html.attribute Group.homogenousEnable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button2
                         [ Button.roundedAll ]
                         [ text "Button" ]
@@ -462,12 +431,9 @@ view model =
                         ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionColumn
-                    , Amcss.Html.attribute Group.homogenousEnable
-                    , HtmlAttributes.attribute "style" "width: 30%"
-                    ]
+                , Amcss.group4 div
+                    [ Group.directionColumn, Group.homogenousEnable ]
+                    [ HtmlAttributes.attribute "style" "width: 30%" ]
                     [ Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
@@ -480,10 +446,8 @@ view model =
                         ]
                         [ text "Button" ]
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionColumn
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionColumn ]
                     [ Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
@@ -497,7 +461,7 @@ view model =
                         [ text "Button" ]
                     ]
                 ]
-            , section [ Amcss.Html.component Group.component ]
+            , Amcss.group2 section
                 [ h2 []
                     [ text "Form" ]
                 , input
@@ -517,11 +481,8 @@ view model =
                     , HtmlAttributes.attribute "value" "Text"
                     ]
                     []
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    , Amcss.Html.attribute Group.homogenousEnable
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button [ text "Do something" ]
                     , input
                         [ Amcss.Html.attribute Form.typeOfText
@@ -529,10 +490,8 @@ view model =
                         ]
                         []
                     ]
-                , div
-                    [ Amcss.Html.component Group.component
-                    , Amcss.Html.attribute Group.directionRow
-                    ]
+                , Amcss.group3 div
+                    [ Group.directionRow ]
                     [ Amcss.button [ text "Do something" ]
                     , input
                         [ Amcss.Html.attribute Form.typeOfText
