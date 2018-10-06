@@ -12,7 +12,6 @@ import Amcss.Component.Popup as Popup
 import Amcss.Component.Popup.Dropdown as Dropdown exposing (dropdown, dropdownRight)
 import Amcss.Component.Popup.Tooltip as Tooltip exposing (tooltip, tooltipBottom, tooltipBottomLeft, tooltipBottomRight, tooltipTop, tooltipTopLeft, tooltipTopRight)
 import Amcss.Component.Window as Window
-import Amcss.Html
 import Browser exposing (..)
 import Html.Styled as Html exposing (..)
 import Html.Styled.Attributes as HtmlAttributes
@@ -86,7 +85,7 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div [ Amcss.Html.component Window.component ]
+    Amcss.window
         [ header []
             [ Amcss.group3 nav
                 [ Group.directionRow

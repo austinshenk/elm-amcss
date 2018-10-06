@@ -25,6 +25,7 @@ module Amcss exposing
     , select
     , select2
     , select3
+    , window
     )
 
 import Amcss.Component
@@ -32,6 +33,7 @@ import Amcss.Component.Button as Button
 import Amcss.Component.Form as Form
 import Amcss.Component.Group as Group
 import Amcss.Component.Link as Link
+import Amcss.Component.Window as Window
 import Amcss.Types
 import Html.Styled as Html
 import Html.Styled.Attributes
@@ -163,3 +165,8 @@ select2 properties =
 select3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
 select3 =
     componentToHtml Form.select Html.select
+
+
+window : List (Html.Html msg) -> Html.Html msg
+window =
+    componentToHtml Window.component Html.div [] []
