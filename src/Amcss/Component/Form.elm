@@ -1,8 +1,9 @@
 module Amcss.Component.Form exposing (css, input, inputDisabled, inputRequired, select, selectDisabled, selectRequired, typeOfCheckbox, typeOfColor, typeOfDate, typeOfRadio, typeOfText)
 
-import Amcss exposing (Property, attribute, element)
+import Amcss.Component exposing (attribute, element)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
+import Amcss.Types exposing (Property)
 import Css exposing (..)
 import Css.Global exposing (..)
 

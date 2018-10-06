@@ -3,7 +3,7 @@ module Amcss.Component exposing
     , attributeString
     , component
     , componentToAttribute
-    , componentToElement
+    , componentToHtml
     , defaultAttribute
     , defaultProperty
     , element
@@ -51,15 +51,15 @@ defaultAttribute =
     Amcss.Types.DefaultAttribute
 
 
-componentToElement : (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> Maybe Component -> List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
-componentToElement elem comp properties attributes =
+componentToHtml : Component -> (List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+componentToHtml comp elem properties attributes =
     let
         componentAsAttribute =
             case comp of
-                Just c ->
-                    [ componentToAttribute c ]
+                Amcss.Types.Component n ->
+                    [ Html.Styled.Attributes.attribute attributeString n ]
 
-                Nothing ->
+                Amcss.Types.Element _ ->
                     []
 
         propertiesAsAttributes =
@@ -68,7 +68,7 @@ componentToElement elem comp properties attributes =
     elem (componentAsAttribute ++ propertiesAsAttributes ++ attributes)
 
 
-propertyToAttribute : Amcss.Types.Property -> Html.Attribute msg
+propertyToAttribute : Property -> Html.Attribute msg
 propertyToAttribute prop =
     let
         ( name, value ) =
@@ -88,7 +88,7 @@ propertyToAttribute prop =
     Html.Styled.Attributes.attribute name value
 
 
-componentToAttribute : Amcss.Types.Component -> Html.Attribute msg
+componentToAttribute : Component -> Html.Attribute msg
 componentToAttribute comp =
     let
         name =

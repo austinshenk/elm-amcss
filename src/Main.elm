@@ -464,71 +464,50 @@ view model =
             , Amcss.group2 section
                 [ h2 []
                     [ text "Form" ]
-                , input
-                    [ Amcss.Html.attribute Form.typeOfText
-                    , HtmlAttributes.attribute "value" "Text"
-                    ]
-                    []
-                , input
-                    [ Amcss.Html.attribute Form.typeOfText
-                    , Amcss.Html.attribute Form.inputRequired
-                    , HtmlAttributes.attribute "value" "Text"
-                    ]
-                    []
-                , input
-                    [ Amcss.Html.attribute Form.typeOfText
-                    , Amcss.Html.attribute Form.inputDisabled
-                    , HtmlAttributes.attribute "value" "Text"
-                    ]
-                    []
+                , Amcss.input2
+                    [ Form.typeOfText ]
+                    [ HtmlAttributes.attribute "value" "Text" ]
+                , Amcss.input2
+                    [ Form.typeOfText, Form.inputRequired ]
+                    [ HtmlAttributes.attribute "value" "Text" ]
+                , Amcss.input2
+                    [ Form.typeOfText, Form.inputDisabled ]
+                    [ HtmlAttributes.attribute "value" "Text" ]
                 , Amcss.group3 div
                     [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button [ text "Do something" ]
-                    , input
-                        [ Amcss.Html.attribute Form.typeOfText
-                        , HtmlAttributes.attribute "value" "Text"
-                        ]
-                        []
+                    , Amcss.input2
+                        [ Form.typeOfText ]
+                        [ HtmlAttributes.attribute "value" "Text" ]
                     ]
                 , Amcss.group3 div
                     [ Group.directionRow ]
                     [ Amcss.button [ text "Do something" ]
-                    , input
-                        [ Amcss.Html.attribute Form.typeOfText
-                        , HtmlAttributes.attribute "value" "Text"
-                        ]
-                        []
+                    , Amcss.input2
+                        [ Form.typeOfText ]
+                        [ HtmlAttributes.attribute "value" "Text" ]
                     ]
-                , input [ Amcss.Html.attribute Form.typeOfDate ]
-                    []
-                , input [ Amcss.Html.attribute Form.typeOfDate, Amcss.Html.attribute Form.inputRequired ]
-                    []
-                , input [ Amcss.Html.attribute Form.typeOfDate, Amcss.Html.attribute Form.inputDisabled ]
-                    []
-                , select []
+                , Amcss.input [ Form.typeOfDate ]
+                , Amcss.input [ Form.typeOfDate, Form.inputRequired ]
+                , Amcss.input [ Form.typeOfDate, Form.inputDisabled ]
+                , Amcss.select
                     [ option []
                         [ text "" ]
                     , option []
                         [ text "Option" ]
                     ]
-                , select [ Amcss.Html.attribute Form.selectRequired ]
+                , Amcss.select2 [ Form.selectRequired ]
                     [ option []
                         [ text "" ]
                     , option []
                         [ text "Option" ]
                     ]
-                , input [ Amcss.Html.attribute Form.typeOfCheckbox ]
-                    []
-                , input [ Amcss.Html.attribute Form.typeOfCheckbox, Amcss.Html.attribute Form.inputRequired ]
-                    []
-                , input [ Amcss.Html.attribute Form.typeOfCheckbox, Amcss.Html.attribute Form.inputDisabled ]
-                    []
-                , input [ Amcss.Html.attribute Form.typeOfRadio ]
-                    []
-                , input [ Amcss.Html.attribute Form.typeOfRadio, Amcss.Html.attribute Form.inputRequired ]
-                    []
-                , input [ Amcss.Html.attribute Form.typeOfRadio, Amcss.Html.attribute Form.inputDisabled ]
-                    []
+                , Amcss.input [ Form.typeOfCheckbox ]
+                , Amcss.input [ Form.typeOfCheckbox, Form.inputRequired ]
+                , Amcss.input [ Form.typeOfCheckbox, Form.inputDisabled ]
+                , Amcss.input [ Form.typeOfRadio ]
+                , Amcss.input [ Form.typeOfRadio, Form.inputRequired ]
+                , Amcss.input [ Form.typeOfRadio, Form.inputDisabled ]
                 ]
             ]
         , Popup.mappedView Popup model.tooltip model.tooltip.id

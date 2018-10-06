@@ -1,9 +1,10 @@
-module Amcss.Component.Button exposing (css, disabled, displayGhost, displayNormal, roundedAll, roundedNone, roundedSome, sizeLarge, sizeMedium, sizeSmall)
+module Amcss.Component.Button exposing (component, css, disabled, displayGhost, displayNormal, roundedAll, roundedNone, roundedSome, sizeLarge, sizeMedium, sizeSmall)
 
-import Amcss exposing (Component, Property, attribute, defaultProperty, element, property)
+import Amcss.Component exposing (attribute, defaultProperty, element, property)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html
+import Amcss.Types exposing (Component, Property)
 import Css exposing (..)
 import Css.Global
 import Html.Styled as Html
@@ -11,7 +12,7 @@ import Html.Styled as Html
 
 css : List Css.Global.Snippet
 css =
-    [ Amcss.Css.component button
+    [ Amcss.Css.component component
         [ border3 (px 1) solid StyleGuide.borderColorEmphasized
         , boxSizing borderBox
         , lineHeight StyleGuide.smallLineHeight
@@ -40,24 +41,24 @@ css =
     ]
 
 
-button : Component
-button =
+component : Component
+component =
     element "button"
 
 
 display : (Component -> String -> String -> Property) -> String -> Property
 display p value =
-    p button "d" value
+    p component "d" value
 
 
 rounded : (Component -> String -> String -> Property) -> String -> Property
 rounded p value =
-    p button "r" value
+    p component "r" value
 
 
 size : (Component -> String -> String -> Property) -> String -> Property
 size p value =
-    p button "s" value
+    p component "s" value
 
 
 displayNormal : Property
@@ -67,7 +68,7 @@ displayNormal =
 
 displayGhost : Property
 displayGhost =
-    display Amcss.property "2"
+    display Amcss.Component.property "2"
 
 
 roundedNone : Property
@@ -77,12 +78,12 @@ roundedNone =
 
 roundedSome : Property
 roundedSome =
-    rounded Amcss.property "2"
+    rounded Amcss.Component.property "2"
 
 
 roundedAll : Property
 roundedAll =
-    rounded Amcss.property "3"
+    rounded Amcss.Component.property "3"
 
 
 sizeSmall : Property
@@ -92,14 +93,14 @@ sizeSmall =
 
 sizeMedium : Property
 sizeMedium =
-    size Amcss.property "2"
+    size Amcss.Component.property "2"
 
 
 sizeLarge : Property
 sizeLarge =
-    size Amcss.property "3"
+    size Amcss.Component.property "3"
 
 
 disabled : Property
 disabled =
-    attribute button "disabled" ""
+    attribute component "disabled" ""
