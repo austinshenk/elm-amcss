@@ -28,13 +28,15 @@ module Amcss.Component.Group exposing
     , wrapReverse
     )
 
-import Amcss.Component exposing (component, defaultProperty, property)
+import Amcss.Component
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
-import Css exposing (..)
-import Css.Global exposing (..)
+import Amcss.Types exposing (Component, Property)
+import Css exposing (baseline, borderBottomLeftRadius, borderBottomRightRadius, borderTopLeftRadius, borderTopRightRadius, center, column, displayFlex, flexDirection, flexEnd, flexStart, flexWrap, important, margin, margin4, marginBottom, marginLeft, marginRight, marginTop, noWrap, row, spaceAround, spaceBetween, stretch, zero)
+import Css.Global exposing (Snippet, children)
 
 
+css : List Snippet
 css =
     [ Amcss.Css.component component
         [ displayFlex
@@ -123,133 +125,166 @@ css =
     ]
 
 
+component : Component
 component =
     Amcss.Component.component "g"
 
 
+alignContent : String -> Property
 alignContent =
     Amcss.Component.property component "a"
 
 
+alignItems : String -> Property
 alignItems =
     Amcss.Component.property component "i"
 
 
+direction : String -> Property
 direction =
     Amcss.Component.property component "d"
 
 
+justifyContent : String -> Property
 justifyContent =
     Amcss.Component.property component "j"
 
 
+spacing : String -> Property
 spacing =
     Amcss.Component.property component "s"
 
 
+wrap : String -> Property
 wrap =
     Amcss.Component.property component "w"
 
 
+homogenous : String -> Property
 homogenous =
     Amcss.Component.property component "h"
 
 
+alignContentStretch : Property
 alignContentStretch =
-    defaultProperty component "a" "1"
+    Amcss.Component.defaultProperty component "a" "1"
 
 
+alignContentStart : Property
 alignContentStart =
     alignContent "2"
 
 
+alignContentCenter : Property
 alignContentCenter =
     alignContent "3"
 
 
+alignContentEnd : Property
 alignContentEnd =
     alignContent "4"
 
 
+alignContentSpaceAround : Property
 alignContentSpaceAround =
     alignContent "5"
 
 
+alignContentSpaceBetween : Property
 alignContentSpaceBetween =
     alignContent "6"
 
 
+alignItemsStretch : Property
 alignItemsStretch =
-    defaultProperty component "i" "1"
+    Amcss.Component.defaultProperty component "i" "1"
 
 
+alignItemsStart : Property
 alignItemsStart =
     alignItems "2"
 
 
+alignItemsCenter : Property
 alignItemsCenter =
     alignItems "3"
 
 
+alignItemsEnd : Property
 alignItemsEnd =
     alignItems "4"
 
 
+alignItemsBaseline : Property
 alignItemsBaseline =
     alignItems "5"
 
 
+directionColumn : Property
 directionColumn =
-    defaultProperty component "d" "1"
+    Amcss.Component.defaultProperty component "d" "1"
 
 
+directionRow : Property
 directionRow =
     direction "2"
 
 
+justifyContentStart : Property
 justifyContentStart =
-    defaultProperty component "j" "1"
+    Amcss.Component.defaultProperty component "j" "1"
 
 
+justifyContentCenter : Property
 justifyContentCenter =
     justifyContent "2"
 
 
+justifyContentEnd : Property
 justifyContentEnd =
     justifyContent "3"
 
 
+justifyContentSpaceAround : Property
 justifyContentSpaceAround =
     justifyContent "4"
 
 
+justifyContentSpaceBetween : Property
 justifyContentSpaceBetween =
     justifyContent "5"
 
 
+spacingEnable : Property
 spacingEnable =
-    defaultProperty component "s" "1"
+    Amcss.Component.defaultProperty component "s" "1"
 
 
+spacingDisable : Property
 spacingDisable =
     spacing "2"
 
 
+wrapEnable : Property
 wrapEnable =
-    defaultProperty component "w" "1"
+    Amcss.Component.defaultProperty component "w" "1"
 
 
+wrapDisable : Property
 wrapDisable =
     wrap "2"
 
 
+wrapReverse : Property
 wrapReverse =
     wrap "-1"
 
 
+homogenousDisable : Property
 homogenousDisable =
-    defaultProperty component "h" "1"
+    Amcss.Component.defaultProperty component "h" "1"
 
 
+homogenousEnable : Property
 homogenousEnable =
     homogenous "2"

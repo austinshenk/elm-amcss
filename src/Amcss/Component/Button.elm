@@ -1,16 +1,15 @@
 module Amcss.Component.Button exposing (component, css, disabled, displayGhost, displayNormal, roundedAll, roundedNone, roundedSome, sizeLarge, sizeMedium, sizeSmall)
 
-import Amcss.Component exposing (attribute, defaultProperty, element, property)
+import Amcss.Component
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html
 import Amcss.Types exposing (Component, Property)
-import Css exposing (..)
-import Css.Global
-import Html.Styled as Html
+import Css exposing (backgroundColor, border3, borderBox, boxSizing, lineHeight, num, opacity, padding, px, solid, zero)
+import Css.Global exposing (Snippet)
 
 
-css : List Css.Global.Snippet
+css : List Snippet
 css =
     [ Amcss.Css.component component
         [ border3 (px 1) solid StyleGuide.borderColorEmphasized
@@ -43,7 +42,7 @@ css =
 
 component : Component
 component =
-    element "button"
+    Amcss.Component.element "button"
 
 
 display : (Component -> String -> String -> Property) -> String -> Property
@@ -63,7 +62,7 @@ size p value =
 
 displayNormal : Property
 displayNormal =
-    display defaultProperty "1"
+    display Amcss.Component.defaultProperty "1"
 
 
 displayGhost : Property
@@ -73,7 +72,7 @@ displayGhost =
 
 roundedNone : Property
 roundedNone =
-    rounded defaultProperty "1"
+    rounded Amcss.Component.defaultProperty "1"
 
 
 roundedSome : Property
@@ -88,7 +87,7 @@ roundedAll =
 
 sizeSmall : Property
 sizeSmall =
-    size defaultProperty "1"
+    size Amcss.Component.defaultProperty "1"
 
 
 sizeMedium : Property
@@ -103,4 +102,4 @@ sizeLarge =
 
 disabled : Property
 disabled =
-    attribute component "disabled" ""
+    Amcss.Component.attribute component "disabled" ""

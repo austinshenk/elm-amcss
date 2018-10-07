@@ -1,12 +1,14 @@
-module Amcss.Component.Link exposing (active, component, css, hrefNothing, hrefPound, hrefVoid)
+module Amcss.Component.Link exposing (active, component, css)
 
 import Amcss.Component exposing (attribute, element, property)
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
-import Css exposing (..)
-import Css.Global exposing (..)
+import Amcss.Types exposing (Component, Property)
+import Css exposing (backgroundColor, borderBottom3, borderBottomColor, borderBox, borderTopLeftRadius, borderTopRightRadius, boxSizing, display, focus, hex, hover, inlineBlock, minHeight, minWidth, none, padding3, px, solid, textDecoration, zero)
+import Css.Global exposing (Snippet, each)
 
 
+css : List Snippet
 css =
     [ Amcss.Css.component component
         [ borderBottom3 (px 2) solid StyleGuide.borderColor
@@ -29,7 +31,7 @@ css =
     , Amcss.Css.selector [ active ]
         [ borderBottomColor StyleGuide.black ]
     , each
-        [ Amcss.Css.selectorNotExist [ hrefNothing ]
+        [ Amcss.Css.selector [ hrefNothing ]
         , Amcss.Css.selector [ hrefPound ]
         ]
         [ backgroundColor (hex "ff0000")
@@ -38,25 +40,31 @@ css =
     ]
 
 
+component : Component
 component =
     Amcss.Component.element "a"
 
 
+href : String -> Property
 href =
     attribute component "href"
 
 
+hrefNothing : Property
 hrefNothing =
     href ""
 
 
+hrefPound : Property
 hrefPound =
     href "#"
 
 
+hrefVoid : Property
 hrefVoid =
     href "javascript:void(0)"
 
 
+active : Property
 active =
     Amcss.Component.property component "a" ""

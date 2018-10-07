@@ -5,7 +5,6 @@ import Amcss.Component.Button as Button
 import Amcss.Component.Flyover as Flyover
 import Amcss.Component.Flyover.Backdrop as Backdrop
 import Amcss.Component.Flyover.Modal as Modal
-import Amcss.Component.Form as Form
 import Amcss.Component.Group as Group
 import Amcss.Component.Link as Link
 import Amcss.Component.Popup as Popup
@@ -14,8 +13,7 @@ import Amcss.Component.Popup.Tooltip as Tooltip exposing (tooltip, tooltipBottom
 import Amcss.Component.Window as Window
 import Browser exposing (..)
 import Html.Styled as Html exposing (..)
-import Html.Styled.Attributes as HtmlAttributes
-import Html.Styled.Events as HtmlEvents
+import Html.Styled.Attributes as Attributes
 
 
 main =
@@ -91,11 +89,12 @@ view model =
                 [ Group.directionRow
                 , Group.justifyContentCenter
                 ]
-                [ Amcss.link2 [ Link.hrefVoid, Link.active ]
+                [ Amcss.link3 [ Link.active ]
+                    [ Attributes.href "/" ]
                     [ text "Nav 1" ]
-                , Amcss.link2 [ Link.hrefVoid ]
+                , Amcss.link2 [ Attributes.href "/" ]
                     [ text "Nav 2" ]
-                , Amcss.link2 [ Link.hrefVoid ]
+                , Amcss.link2 [ Attributes.href "/" ]
                     [ text "Nav 3" ]
                 ]
             ]
@@ -163,9 +162,9 @@ view model =
                         [ text "Button" ]
                         (Amcss.group3 div
                             [ Group.spacingDisable ]
-                            [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
-                            , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
-                            , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
+                            [ Amcss.link2 [ Attributes.href "/" ] [ text "First Entry" ]
+                            , Amcss.link2 [ Attributes.href "/" ] [ text "Second Entry" ]
+                            , Amcss.link2 [ Attributes.href "/" ] [ text "Third Entry" ]
                             ]
                         )
                     , dropdownRight
@@ -177,9 +176,9 @@ view model =
                         [ text "Button" ]
                         (Amcss.group3 div
                             [ Group.spacingDisable ]
-                            [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
-                            , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
-                            , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
+                            [ Amcss.link2 [ Attributes.href "/" ] [ text "First Entry" ]
+                            , Amcss.link2 [ Attributes.href "/" ] [ text "Second Entry" ]
+                            , Amcss.link2 [ Attributes.href "/" ] [ text "Third Entry" ]
                             ]
                         )
                     , dropdownRight
@@ -191,9 +190,9 @@ view model =
                         [ text "Button" ]
                         (Amcss.group3 div
                             [ Group.spacingDisable ]
-                            [ Amcss.link2 [ Link.hrefVoid ] [ text "First Entry" ]
-                            , Amcss.link2 [ Link.hrefVoid ] [ text "Second Entry" ]
-                            , Amcss.link2 [ Link.hrefVoid ] [ text "Third Entry" ]
+                            [ Amcss.link2 [ Attributes.href "/" ] [ text "First Entry" ]
+                            , Amcss.link2 [ Attributes.href "/" ] [ text "Second Entry" ]
+                            , Amcss.link2 [ Attributes.href "/" ] [ text "Third Entry" ]
                             ]
                         )
                     ]
@@ -203,17 +202,17 @@ view model =
                     [ text "Breadcrumb" ]
                 , Amcss.group3 div
                     [ Group.directionRow ]
-                    [ Amcss.link2 [ Link.hrefVoid ]
+                    [ Amcss.link2 [ Attributes.href "/" ]
                         [ text "Home" ]
                     , Html.span
                         []
                         [ text "/" ]
-                    , Amcss.link2 [ Link.hrefVoid ]
+                    , Amcss.link2 [ Attributes.href "/" ]
                         [ text "Library" ]
                     , Html.span
                         []
                         [ text "/" ]
-                    , Amcss.link2 [ Link.hrefVoid ]
+                    , Amcss.link2 [ Attributes.href "/" ]
                         [ text "Data" ]
                     ]
                 , Amcss.group3 div
@@ -235,29 +234,29 @@ view model =
                     [ text "Link" ]
                 , Amcss.group3 div
                     [ Group.directionRow ]
-                    [ Amcss.link2 [ Link.hrefVoid ]
+                    [ Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
-                    , Amcss.link2 [ Link.hrefPound ]
+                    , Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
                     , Amcss.link
                         [ text "Link" ]
                     ]
                 , Amcss.group3 div
                     [ Group.directionRow, Group.spacingDisable ]
-                    [ Amcss.link2 [ Link.hrefVoid ]
+                    [ Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
-                    , Amcss.link2 [ Link.hrefVoid ]
+                    , Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
-                    , Amcss.link2 [ Link.hrefVoid ]
+                    , Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
                     ]
                 , Amcss.group3 div
                     [ Group.directionColumn, Group.spacingDisable ]
-                    [ Amcss.link2 [ Link.hrefVoid ]
+                    [ Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
-                    , Amcss.link2 [ Link.hrefVoid ]
+                    , Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
-                    , Amcss.link2 [ Link.hrefVoid ]
+                    , Amcss.link2 [ Attributes.href "/" ]
                         [ text "Link" ]
                     ]
                 ]
@@ -432,7 +431,7 @@ view model =
                     ]
                 , Amcss.group4 div
                     [ Group.directionColumn, Group.homogenousEnable ]
-                    [ HtmlAttributes.attribute "style" "width: 30%" ]
+                    [ Attributes.attribute "style" "width: 30%" ]
                     [ Amcss.button2
                         [ Button.roundedSome ]
                         [ text "Button" ]
@@ -463,50 +462,45 @@ view model =
             , Amcss.group2 section
                 [ h2 []
                     [ text "Form" ]
-                , Amcss.input2
-                    [ Form.typeOfText ]
-                    [ HtmlAttributes.attribute "value" "Text" ]
-                , Amcss.input2
-                    [ Form.typeOfText, Form.inputRequired ]
-                    [ HtmlAttributes.attribute "value" "Text" ]
-                , Amcss.input2
-                    [ Form.typeOfText, Form.inputDisabled ]
-                    [ HtmlAttributes.attribute "value" "Text" ]
+                , Amcss.input
+                    [ Attributes.attribute "type" "text", Attributes.attribute "value" "Text" ]
+                , Amcss.input
+                    [ Attributes.attribute "type" "text", Attributes.attribute "value" "Text", Attributes.attribute "required" "true" ]
+                , Amcss.input
+                    [ Attributes.attribute "type" "text", Attributes.attribute "value" "Text", Attributes.attribute "disabled" "true" ]
                 , Amcss.group3 div
                     [ Group.directionRow, Group.homogenousEnable ]
                     [ Amcss.button [ text "Do something" ]
-                    , Amcss.input2
-                        [ Form.typeOfText ]
-                        [ HtmlAttributes.attribute "value" "Text" ]
+                    , Amcss.input
+                        [ Attributes.attribute "type" "text", Attributes.attribute "value" "Text" ]
                     ]
                 , Amcss.group3 div
                     [ Group.directionRow ]
                     [ Amcss.button [ text "Do something" ]
-                    , Amcss.input2
-                        [ Form.typeOfText ]
-                        [ HtmlAttributes.attribute "value" "Text" ]
+                    , Amcss.input
+                        [ Attributes.attribute "type" "text", Attributes.attribute "value" "Text" ]
                     ]
-                , Amcss.input [ Form.typeOfDate ]
-                , Amcss.input [ Form.typeOfDate, Form.inputRequired ]
-                , Amcss.input [ Form.typeOfDate, Form.inputDisabled ]
+                , Amcss.input [ Attributes.attribute "type" "date" ]
+                , Amcss.input [ Attributes.attribute "type" "date", Attributes.attribute "required" "true" ]
+                , Amcss.input [ Attributes.attribute "type" "date", Attributes.attribute "disabled" "true" ]
                 , Amcss.select
                     [ option []
                         [ text "" ]
                     , option []
                         [ text "Option" ]
                     ]
-                , Amcss.select2 [ Form.selectRequired ]
+                , Amcss.select2 [ Attributes.attribute "required" "true" ]
                     [ option []
                         [ text "" ]
                     , option []
                         [ text "Option" ]
                     ]
-                , Amcss.input [ Form.typeOfCheckbox ]
-                , Amcss.input [ Form.typeOfCheckbox, Form.inputRequired ]
-                , Amcss.input [ Form.typeOfCheckbox, Form.inputDisabled ]
-                , Amcss.input [ Form.typeOfRadio ]
-                , Amcss.input [ Form.typeOfRadio, Form.inputRequired ]
-                , Amcss.input [ Form.typeOfRadio, Form.inputDisabled ]
+                , Amcss.input [ Attributes.attribute "type" "checkbox" ]
+                , Amcss.input [ Attributes.attribute "type" "checkbox", Attributes.attribute "required" "true" ]
+                , Amcss.input [ Attributes.attribute "type" "checkbox", Attributes.attribute "disabled" "true" ]
+                , Amcss.input [ Attributes.attribute "type" "radio" ]
+                , Amcss.input [ Attributes.attribute "type" "radio", Attributes.attribute "required" "true" ]
+                , Amcss.input [ Attributes.attribute "type" "radio", Attributes.attribute "disabled" "true" ]
                 ]
             ]
         , Popup.mappedView Popup model.tooltip model.tooltip.id

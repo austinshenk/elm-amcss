@@ -107,9 +107,9 @@ link =
     link2 []
 
 
-link2 : List Property -> List (Html.Html msg) -> Html.Html msg
-link2 properties =
-    link3 properties []
+link2 : List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+link2 =
+    link3 []
 
 
 link3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
@@ -137,9 +137,9 @@ group4 =
     componentToHtml Group.component
 
 
-input : List Property -> Html.Html msg
-input properties =
-    input2 properties []
+input : List (Html.Attribute msg) -> Html.Html msg
+input =
+    input2 []
 
 
 input2 : List Property -> List (Html.Attribute msg) -> Html.Html msg
@@ -157,9 +157,9 @@ select =
     select2 []
 
 
-select2 : List Property -> List (Html.Html msg) -> Html.Html msg
-select2 properties =
-    select3 properties []
+select2 : List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+select2 =
+    select3 []
 
 
 select3 : List Property -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg

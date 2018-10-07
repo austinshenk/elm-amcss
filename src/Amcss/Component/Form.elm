@@ -1,13 +1,14 @@
-module Amcss.Component.Form exposing (css, input, inputDisabled, inputRequired, select, selectDisabled, selectRequired, typeOfCheckbox, typeOfColor, typeOfDate, typeOfRadio, typeOfText)
+module Amcss.Component.Form exposing (css, input, select)
 
-import Amcss.Component exposing (attribute, element)
+import Amcss.Component
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
-import Amcss.Types exposing (Property)
-import Css exposing (..)
-import Css.Global exposing (..)
+import Amcss.Types exposing (Component, Property)
+import Css exposing (absolute, after, backgroundColor, border3, bottom, checked, color, cursor, focus, fontSize, height, hex, hover, important, left, lineHeight, margin3, none, num, opacity, outline, padding, pointer, position, px, relative, right, solid, top, width, zero)
+import Css.Global exposing (Snippet, each, form, label, option)
 
 
+css : List Snippet
 css =
     [ form
         [ margin3 zero zero StyleGuide.spacing ]
@@ -100,50 +101,61 @@ css =
     ]
 
 
+input : Component
 input =
-    element "input"
+    Amcss.Component.element "input"
 
 
 typeOf : String -> Property
 typeOf =
-    attribute input "type"
+    Amcss.Component.attribute input "type"
 
 
+typeOfText : Property
 typeOfText =
     typeOf "text"
 
 
+typeOfRadio : Property
 typeOfRadio =
     typeOf "radio"
 
 
+typeOfCheckbox : Property
 typeOfCheckbox =
     typeOf "checkbox"
 
 
+typeOfDate : Property
 typeOfDate =
     typeOf "date"
 
 
+typeOfColor : Property
 typeOfColor =
     typeOf "color"
 
 
+inputDisabled : Property
 inputDisabled =
-    attribute input "disabled" ""
+    Amcss.Component.attribute input "disabled" "true"
 
 
+inputRequired : Property
 inputRequired =
-    attribute input "required" ""
+    Amcss.Component.attribute input "required" "true"
 
 
+select : Component
 select =
-    element "select"
+    Amcss.Component.element "select"
 
 
+selectDisabled : Property
 selectDisabled =
-    attribute select "disabled" ""
+    Amcss.Component.attribute select "disabled" "true"
 
 
+selectRequired : Property
 selectRequired =
-    attribute select "required" ""
+    Amcss.Component.attribute select "required" "true"
