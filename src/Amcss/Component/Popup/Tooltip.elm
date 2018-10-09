@@ -82,43 +82,43 @@ view html =
     Html.div [ Amcss.Html.component component ] [ html ]
 
 
-tooltip : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltip : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
 tooltip element model =
     tooltipFull_ model.defaultProperties.align model.defaultProperties.position element model
 
 
-tooltipTopLeft : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltipTopLeft : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
 tooltipTopLeft =
     tooltipFull_ LeftAlign Top
 
 
-tooltipTop : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltipTop : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
 tooltipTop =
     tooltipFull_ CenterAlign Top
 
 
-tooltipTopRight : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltipTopRight : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
 tooltipTopRight =
     tooltipFull_ RightAlign Top
 
 
-tooltipBottomLeft : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltipBottomLeft : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
 tooltipBottomLeft =
     tooltipFull_ LeftAlign Bottom
 
 
-tooltipBottom : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltipBottom : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
 tooltipBottom =
     tooltipFull_ CenterAlign Bottom
 
 
-tooltipBottomRight : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltipBottomRight : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
 tooltipBottomRight =
     tooltipFull_ RightAlign Bottom
 
 
-tooltipFull_ : Align -> Popup.Position -> (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
-tooltipFull_ align position element { popupId, defaultProperties } messageMapping id popupHtml elementAttributes elementHtml =
+tooltipFull_ : Align -> Popup.Position -> (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> Html Msg -> List (Attribute Msg) -> List (Html Msg) -> Html a
+tooltipFull_ align position element { popupId, defaultProperties, messageMapping } id popupHtml elementAttributes elementHtml =
     let
         showPopupMsg =
             Show popupId id (Just (view popupHtml)) (Just (Properties align position CenterAnchor defaultProperties.animatePosition))

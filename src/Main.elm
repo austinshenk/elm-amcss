@@ -30,8 +30,8 @@ type alias Flags =
 
 
 type alias Model =
-    { tooltip : Popup.Model
-    , dropdown : Popup.Model
+    { tooltip : Popup.Model Msg
+    , dropdown : Popup.Model Msg
     , modal : Flyover.Model
     }
 
@@ -39,8 +39,8 @@ type alias Model =
 init : Flags -> ( Model, Cmd Msg )
 init _ =
     ( Model
-        (Popup.init "popup" |> Popup.centerAligned)
-        (Popup.init "dropdown" |> Popup.leftAligned |> Popup.belowField |> Popup.leftAnchored)
+        (Popup.init "popup" Popup |> Popup.centerAligned)
+        (Popup.init "dropdown" Popup |> Popup.leftAligned |> Popup.belowField |> Popup.leftAnchored)
         (Flyover.init "modal")
     , Cmd.none
     )
@@ -52,10 +52,10 @@ update msg model =
         Popup popupMsg ->
             let
                 tooltipUpdate =
-                    Popup.update Popup popupMsg model.tooltip
+                    Popup.update popupMsg model.tooltip
 
                 dropdownUpdate =
-                    Popup.update Popup popupMsg model.dropdown
+                    Popup.update popupMsg model.dropdown
             in
             ( { model
                 | tooltip = Tuple.first tooltipUpdate
@@ -108,42 +108,36 @@ view model =
                     [ Group.directionRow ]
                     [ tooltipTopLeft (Amcss.button3 [])
                         model.tooltip
-                        Popup
                         "popup1"
                         (text "Top Left")
                         []
                         [ text "Button" ]
                     , tooltipTop (Amcss.button3 [])
                         model.tooltip
-                        Popup
                         "popup2"
                         (text "Top")
                         []
                         [ text "Button" ]
                     , tooltipTopRight (Amcss.button3 [])
                         model.tooltip
-                        Popup
                         "popup3"
                         (text "Top Right")
                         []
                         [ text "Button" ]
                     , tooltipBottomLeft (Amcss.button3 [])
                         model.tooltip
-                        Popup
                         "popup4"
                         (text "Bottom Left")
                         []
                         [ text "Button" ]
                     , tooltipBottom (Amcss.button3 [])
                         model.tooltip
-                        Popup
                         "popup5"
                         (text "Bottom")
                         []
                         [ text "Button" ]
                     , tooltipBottomRight (Amcss.button3 [])
                         model.tooltip
-                        Popup
                         "popup6"
                         (text "Bottom Right")
                         []
@@ -156,7 +150,6 @@ view model =
                     [ dropdown
                         (Amcss.button3 [])
                         model.dropdown
-                        Popup
                         "dropdown1"
                         []
                         [ text "Button" ]
@@ -170,7 +163,6 @@ view model =
                     , dropdownRight
                         (Amcss.button3 [])
                         model.dropdown
-                        Popup
                         "dropdown2"
                         []
                         [ text "Button" ]
@@ -184,7 +176,6 @@ view model =
                     , dropdownRight
                         (Amcss.button3 [])
                         model.dropdown
-                        Popup
                         "dropdown3"
                         []
                         [ text "Button" ]
@@ -503,7 +494,7 @@ view model =
                 , Amcss.input [ Attributes.attribute "type" "radio", Attributes.attribute "disabled" "true" ]
                 ]
             ]
-        , Popup.mappedView Popup model.tooltip model.tooltip.id
+        , Popup.mappedView model.tooltip model.tooltip.id
 
         {--
         , div

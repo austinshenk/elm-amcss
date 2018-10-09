@@ -40,8 +40,8 @@ view html =
     Html.div [ Amcss.Html.component component ] [ html ]
 
 
-dropdownFull_ : Align -> Anchor -> (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> List (Attribute Msg) -> List (Html Msg) -> Html Msg -> Html a
-dropdownFull_ align anchor element model messageMapping id elementAttributes elementHtml popupHtml =
+dropdownFull_ : Align -> Anchor -> (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> List (Attribute Msg) -> List (Html Msg) -> Html Msg -> Html a
+dropdownFull_ align anchor element model id elementAttributes elementHtml popupHtml =
     let
         togglePopupMsg =
             if model.id == id then
@@ -63,15 +63,15 @@ dropdownFull_ align anchor element model messageMapping id elementAttributes ele
             else
                 elementHtml ++ [ Popup.view { model | html = Nothing } id ]
     in
-    Html.map messageMapping
+    Html.map model.messageMapping
         (element fullAttribute fullBody)
 
 
-dropdown : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> List (Attribute Msg) -> List (Html Msg) -> Html Msg -> Html a
+dropdown : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> List (Attribute Msg) -> List (Html Msg) -> Html Msg -> Html a
 dropdown =
     dropdownFull_ LeftAlign LeftAnchor
 
 
-dropdownRight : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model -> (Msg -> a) -> String -> List (Attribute Msg) -> List (Html Msg) -> Html Msg -> Html a
+dropdownRight : (List (Attribute Msg) -> List (Html Msg) -> Html Msg) -> Model a -> String -> List (Attribute Msg) -> List (Html Msg) -> Html Msg -> Html a
 dropdownRight =
     dropdownFull_ RightAlign RightAnchor

@@ -67,7 +67,7 @@ css =
     ]
 
 
-type alias Model =
+type alias Model a =
     { popupId : String
     , defaultProperties : Properties
     , id : String
@@ -75,6 +75,7 @@ type alias Model =
     , boundingBox : Maybe BoundingBox
     , properties : Maybe Properties
     , visible : Bool
+    , messageMapping : Msg -> a
     }
 
 
@@ -110,27 +111,27 @@ type alias Properties =
     { align : Align, position : Position, anchor : Anchor, animatePosition : Bool }
 
 
-init : String -> Model
-init popupId =
-    Model popupId (Properties LeftAlign Bottom LeftAnchor True) "" Nothing Nothing Nothing False
+init : String -> (Msg -> a) -> Model a
+init popupId messageMapping =
+    Model popupId (Properties LeftAlign Bottom LeftAnchor True) "" Nothing Nothing Nothing False messageMapping
 
 
-leftAligned : Model -> Model
+leftAligned : Model a -> Model a
 leftAligned =
     setAlignment LeftAlign
 
 
-centerAligned : Model -> Model
+centerAligned : Model a -> Model a
 centerAligned =
     setAlignment CenterAlign
 
 
-rightAligned : Model -> Model
+rightAligned : Model a -> Model a
 rightAligned =
     setAlignment RightAlign
 
 
-setAlignment : Align -> Model -> Model
+setAlignment : Align -> Model a -> Model a
 setAlignment alignment model =
     let
         defaultProperties =
@@ -144,17 +145,17 @@ setAlignment alignment model =
     }
 
 
-aboveField : Model -> Model
+aboveField : Model a -> Model a
 aboveField =
     setPosition Top
 
 
-belowField : Model -> Model
+belowField : Model a -> Model a
 belowField =
     setPosition Bottom
 
 
-setPosition : Position -> Model -> Model
+setPosition : Position -> Model a -> Model a
 setPosition newPosition model =
     let
         defaultProperties =
@@ -168,22 +169,22 @@ setPosition newPosition model =
     }
 
 
-leftAnchored : Model -> Model
+leftAnchored : Model a -> Model a
 leftAnchored =
     setAnchor LeftAnchor
 
 
-centerAnchored : Model -> Model
+centerAnchored : Model a -> Model a
 centerAnchored =
     setAnchor CenterAnchor
 
 
-rightAnchored : Model -> Model
+rightAnchored : Model a -> Model a
 rightAnchored =
     setAnchor RightAnchor
 
 
-setAnchor : Anchor -> Model -> Model
+setAnchor : Anchor -> Model a -> Model a
 setAnchor newAnchor model =
     let
         defaultProperties =
@@ -197,8 +198,8 @@ setAnchor newAnchor model =
     }
 
 
-update : (Msg -> a) -> Msg -> Model -> ( Model, Cmd a )
-update messageMapping msg model =
+update : Msg -> Model a -> ( Model a, Cmd a )
+update msg model =
     case msg of
         ClearContent popupId id ->
             let
@@ -214,7 +215,7 @@ update messageMapping msg model =
         Hide popupId id ->
             if isCurrent model popupId id then
                 ( { model | id = id, visible = False }
-                , Cmd.map messageMapping (delay 300 (ClearContent popupId id))
+                , Cmd.map model.messageMapping (delay 300 (ClearContent popupId id))
                 )
 
             else
@@ -224,7 +225,7 @@ update messageMapping msg model =
             if model.popupId == popupId then
                 let
                     cmd =
-                        Cmd.map messageMapping (Task.attempt (SetPosition popupId id) (getElement id))
+                        Cmd.map model.messageMapping (Task.attempt (SetPosition popupId id) (getElement id))
                 in
                 if model.id == id then
                     ( { model
@@ -278,17 +279,17 @@ delay time msg =
         |> Task.perform (\_ -> msg)
 
 
-isCurrent : Model -> String -> String -> Bool
+isCurrent : Model a -> String -> String -> Bool
 isCurrent { popupId, id } currentPopupId currentId =
     popupId == currentPopupId && (id == "" || id == currentId)
 
 
-mappedView : (Msg -> a) -> Model -> String -> Html a
-mappedView messageMapping model id =
-    Html.map messageMapping (view model id)
+mappedView : Model a -> String -> Html a
+mappedView model id =
+    Html.map model.messageMapping (view model id)
 
 
-view : Model -> String -> Html Msg
+view : Model a -> String -> Html Msg
 view { popupId, defaultProperties, id, html, boundingBox, properties, visible } currentId =
     let
         modelialAttributes =
