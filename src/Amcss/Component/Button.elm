@@ -3,7 +3,6 @@ module Amcss.Component.Button exposing (component, css, disabled, displayGhost, 
 import Amcss.Component
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
-import Amcss.Html
 import Amcss.Types exposing (Component, Property)
 import Css exposing (backgroundColor, border3, borderBox, boxSizing, lineHeight, num, opacity, padding, px, solid, zero)
 import Css.Global exposing (Snippet)
