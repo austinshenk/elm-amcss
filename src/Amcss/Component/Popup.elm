@@ -25,7 +25,6 @@ module Amcss.Component.Popup exposing
 import Amcss.Component
 import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
-import Amcss.Html
 import Amcss.Types exposing (Component, Property)
 import Browser.Dom exposing (..)
 import Css exposing (..)
@@ -292,9 +291,6 @@ mappedView model id =
 view : Model a -> String -> Html Msg
 view { popupId, defaultProperties, id, html, boundingBox, properties, visible } currentId =
     let
-        modelialAttributes =
-            [ Amcss.Html.component component ]
-
         popupBody =
             case html of
                 Nothing ->
@@ -311,20 +307,19 @@ view { popupId, defaultProperties, id, html, boundingBox, properties, visible } 
                 Just p ->
                     p
 
-        popupProperties =
+        ( popupProperties, popupAttributes ) =
             if id /= currentId then
-                [ Amcss.Html.attribute invisible, Amcss.Html.attribute (animatePositionToProperty notNothingProperties.animatePosition) ]
+                ( [ invisible, animatePositionToProperty notNothingProperties.animatePosition ], [] )
 
             else
                 case boundingBox of
                     Nothing ->
-                        [ Amcss.Html.attribute (visibleToProperty visible), Amcss.Html.attribute (animatePositionToProperty notNothingProperties.animatePosition) ]
+                        ( [ visibleToProperty visible, animatePositionToProperty notNothingProperties.animatePosition ], [] )
 
                     Just bb ->
-                        [ Amcss.Html.attribute (visibleToProperty visible) ]
-                            ++ calculatePopupPos notNothingProperties bb
+                        calculatePopupPos notNothingProperties bb visible
     in
-    Html.div (modelialAttributes ++ popupProperties) popupBody
+    Amcss.Component.componentToHtml component Html.div popupProperties popupAttributes popupBody
 
 
 visibleToProperty : Bool -> Property
@@ -337,8 +332,8 @@ visibleToProperty a =
             invisible
 
 
-calculatePopupPos : Properties -> BoundingBox -> List (Attribute Msg)
-calculatePopupPos { align, position, anchor, animatePosition } { top, left, width, height } =
+calculatePopupPos : Properties -> BoundingBox -> Bool -> ( List Property, List (Attribute Msg) )
+calculatePopupPos { align, position, anchor, animatePosition } { top, left, width, height } visible =
     let
         pLeft =
             case align of
@@ -359,12 +354,14 @@ calculatePopupPos { align, position, anchor, animatePosition } { top, left, widt
                 Bottom ->
                     top + height
     in
-    [ Amcss.Html.attribute (alignToProperty align)
-    , Amcss.Html.attribute (positionToProperty position)
-    , Amcss.Html.attribute (anchorToProperty anchor)
-    , Amcss.Html.attribute (animatePositionToProperty animatePosition)
-    , Html.Styled.Attributes.attribute "style" ("top:" ++ fromFloat pTop ++ "px; left:" ++ fromFloat pLeft ++ "px;")
-    ]
+    ( [ alignToProperty align
+      , positionToProperty position
+      , anchorToProperty anchor
+      , animatePositionToProperty animatePosition
+      , visibleToProperty visible
+      ]
+    , [ Html.Styled.Attributes.attribute "style" ("top:" ++ fromFloat pTop ++ "px; left:" ++ fromFloat pLeft ++ "px;") ]
+    )
 
 
 alignToProperty : Align -> Property
