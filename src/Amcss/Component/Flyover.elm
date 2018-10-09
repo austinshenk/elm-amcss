@@ -18,7 +18,6 @@ module Amcss.Component.Flyover exposing
     )
 
 import Amcss.Component
-import Amcss.Css
 import Amcss.Html
 import Css exposing (..)
 import Html
@@ -201,31 +200,31 @@ view { flyoverId, defaultProperties, id, html, visible } currentId =
 
 
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ position fixed ]
-    , Amcss.Css.selector [ columnLeft ]
+    , Amcss.Component.propertyToSelector [ columnLeft ]
         [ left zero ]
-    , Amcss.Css.selector [ columnCenter ]
+    , Amcss.Component.propertyToSelector [ columnCenter ]
         [ left (pct 50) ]
-    , Amcss.Css.selector [ columnRight ]
+    , Amcss.Component.propertyToSelector [ columnRight ]
         [ right zero ]
-    , Amcss.Css.selector [ rowTop ]
+    , Amcss.Component.propertyToSelector [ rowTop ]
         [ top zero ]
-    , Amcss.Css.selector [ rowCenter ]
+    , Amcss.Component.propertyToSelector [ rowCenter ]
         [ top (pct 50) ]
-    , Amcss.Css.selector [ rowBottom ]
+    , Amcss.Component.propertyToSelector [ rowBottom ]
         [ bottom zero ]
-    , Amcss.Css.selector [ fullWidthEnable ]
+    , Amcss.Component.propertyToSelector [ fullWidthEnable ]
         [ width (vw 100) ]
-    , Amcss.Css.selector [ fullHeightEnable ]
+    , Amcss.Component.propertyToSelector [ fullHeightEnable ]
         [ height (vh 100) ]
-    , Amcss.Css.selector [ clickThroughEnable ]
+    , Amcss.Component.propertyToSelector [ clickThroughEnable ]
         [ Css.property "pointer-events" "all" ]
-    , Amcss.Css.selector [ clickThroughDisable ]
+    , Amcss.Component.propertyToSelector [ clickThroughDisable ]
         [ Css.property "pointer-events" "none" ]
-    , Amcss.Css.selector [ overflowHidden ]
+    , Amcss.Component.propertyToSelector [ overflowHidden ]
         [ Css.overflow hidden ]
-    , Amcss.Css.selector [ overflowScrollable ]
+    , Amcss.Component.propertyToSelector [ overflowScrollable ]
         [ Css.overflow auto ]
     ]
 

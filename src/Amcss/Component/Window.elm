@@ -6,7 +6,6 @@ module Amcss.Component.Window exposing
     )
 
 import Amcss.Component
-import Amcss.Css
 import Amcss.Types exposing (Component, Property)
 import Css exposing (auto, height, hidden, overflow, vh, vw, width)
 import Css.Global exposing (Snippet)
@@ -14,13 +13,13 @@ import Css.Global exposing (Snippet)
 
 css : List Snippet
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ height (vh 100)
         , width (vw 100)
         ]
-    , Amcss.Css.selector [ overflowHidden ]
+    , Amcss.Component.propertyToSelector [ overflowHidden ]
         [ overflow hidden ]
-    , Amcss.Css.selector [ overflowScrollable ]
+    , Amcss.Component.propertyToSelector [ overflowScrollable ]
         [ overflow auto ]
     ]
 

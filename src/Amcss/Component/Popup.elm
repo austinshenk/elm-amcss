@@ -23,7 +23,6 @@ module Amcss.Component.Popup exposing
     )
 
 import Amcss.Component
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Types exposing (Component, Property)
 import Browser.Dom exposing (..)
@@ -39,29 +38,29 @@ import Time exposing (..)
 
 
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ position absolute
         , Css.property "transition" "opacity .3s, top .03s, left .03s, transform .03s"
         ]
-    , Amcss.Css.selector [ animatePositionDisable ]
+    , Amcss.Component.propertyToSelector [ animatePositionDisable ]
         [ Css.property "transition" "opacity .3s" ]
-    , Amcss.Css.selector [ invisible ]
+    , Amcss.Component.propertyToSelector [ invisible ]
         [ Css.property "pointer-events" "none"
         , opacity zero
         ]
-    , Amcss.Css.selector [ isvisible ]
+    , Amcss.Component.propertyToSelector [ isvisible ]
         [ opacity (num 1) ]
-    , Amcss.Css.selector [ positionTop, anchorLeft ]
+    , Amcss.Component.propertyToSelector [ positionTop, anchorLeft ]
         [ transform (translate3d zero (pct -100) zero) ]
-    , Amcss.Css.selector [ positionTop, anchorCenter ]
+    , Amcss.Component.propertyToSelector [ positionTop, anchorCenter ]
         [ transform (translate3d (pct -50) (pct -100) zero) ]
-    , Amcss.Css.selector [ positionTop, anchorRight ]
+    , Amcss.Component.propertyToSelector [ positionTop, anchorRight ]
         [ transform (translate3d (pct -100) (pct -100) zero) ]
-    , Amcss.Css.selector [ positionBottom, anchorLeft ]
+    , Amcss.Component.propertyToSelector [ positionBottom, anchorLeft ]
         [ transform (translate3d zero zero zero) ]
-    , Amcss.Css.selector [ positionBottom, anchorCenter ]
+    , Amcss.Component.propertyToSelector [ positionBottom, anchorCenter ]
         [ transform (translate3d (pct -50) zero zero) ]
-    , Amcss.Css.selector [ positionBottom, anchorRight ]
+    , Amcss.Component.propertyToSelector [ positionBottom, anchorRight ]
         [ transform (translate3d (pct -100) zero zero) ]
     ]
 

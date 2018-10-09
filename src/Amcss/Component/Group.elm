@@ -29,7 +29,6 @@ module Amcss.Component.Group exposing
     )
 
 import Amcss.Component
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Types exposing (Component, Property)
 import Css exposing (baseline, borderBottomLeftRadius, borderBottomRightRadius, borderTopLeftRadius, borderTopRightRadius, center, column, displayFlex, flexDirection, flexEnd, flexStart, flexWrap, important, margin, margin4, marginBottom, marginLeft, marginRight, marginTop, noWrap, row, spaceAround, spaceBetween, stretch, zero)
@@ -38,59 +37,59 @@ import Css.Global exposing (Snippet, children)
 
 css : List Snippet
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ displayFlex
         , StyleGuide.lobotomizedOwl
             [ margin4 StyleGuide.spacing zero zero zero ]
         ]
-    , Amcss.Css.selector [ directionColumn ]
+    , Amcss.Component.propertyToSelector [ directionColumn ]
         [ flexDirection column ]
-    , Amcss.Css.selector [ directionRow ]
+    , Amcss.Component.propertyToSelector [ directionRow ]
         [ flexDirection row
         , StyleGuide.lobotomizedOwl
             [ margin4 zero zero zero StyleGuide.spacing ]
         ]
-    , Amcss.Css.selector [ justifyContentStart ]
+    , Amcss.Component.propertyToSelector [ justifyContentStart ]
         [ Css.justifyContent flexStart ]
-    , Amcss.Css.selector [ justifyContentCenter ]
+    , Amcss.Component.propertyToSelector [ justifyContentCenter ]
         [ Css.justifyContent center ]
-    , Amcss.Css.selector [ justifyContentEnd ]
+    , Amcss.Component.propertyToSelector [ justifyContentEnd ]
         [ Css.justifyContent flexEnd ]
-    , Amcss.Css.selector [ justifyContentSpaceAround ]
+    , Amcss.Component.propertyToSelector [ justifyContentSpaceAround ]
         [ Css.justifyContent spaceAround ]
-    , Amcss.Css.selector [ justifyContentSpaceBetween ]
+    , Amcss.Component.propertyToSelector [ justifyContentSpaceBetween ]
         [ Css.justifyContent spaceBetween ]
-    , Amcss.Css.selector [ alignItemsStretch ]
+    , Amcss.Component.propertyToSelector [ alignItemsStretch ]
         [ Css.alignItems stretch ]
-    , Amcss.Css.selector [ alignItemsStart ]
+    , Amcss.Component.propertyToSelector [ alignItemsStart ]
         [ Css.alignItems flexStart ]
-    , Amcss.Css.selector [ alignItemsCenter ]
+    , Amcss.Component.propertyToSelector [ alignItemsCenter ]
         [ Css.alignItems center ]
-    , Amcss.Css.selector [ alignItemsEnd ]
+    , Amcss.Component.propertyToSelector [ alignItemsEnd ]
         [ Css.alignItems flexEnd ]
-    , Amcss.Css.selector [ alignItemsBaseline ]
+    , Amcss.Component.propertyToSelector [ alignItemsBaseline ]
         [ Css.alignItems baseline ]
-    , Amcss.Css.selector [ alignContentStretch ]
+    , Amcss.Component.propertyToSelector [ alignContentStretch ]
         [ Css.property "align-content" "stretch" ]
-    , Amcss.Css.selector [ alignContentStart ]
+    , Amcss.Component.propertyToSelector [ alignContentStart ]
         [ Css.property "align-content" "start" ]
-    , Amcss.Css.selector [ alignContentCenter ]
+    , Amcss.Component.propertyToSelector [ alignContentCenter ]
         [ Css.property "align-content" "center" ]
-    , Amcss.Css.selector [ alignContentEnd ]
+    , Amcss.Component.propertyToSelector [ alignContentEnd ]
         [ Css.property "align-content" "end" ]
-    , Amcss.Css.selector [ alignContentSpaceAround ]
+    , Amcss.Component.propertyToSelector [ alignContentSpaceAround ]
         [ Css.property "align-content" "space-around" ]
-    , Amcss.Css.selector [ alignContentSpaceBetween ]
+    , Amcss.Component.propertyToSelector [ alignContentSpaceBetween ]
         [ Css.property "align-content" "space-between" ]
-    , Amcss.Css.selector [ wrapEnable ]
+    , Amcss.Component.propertyToSelector [ wrapEnable ]
         [ flexWrap Css.wrap ]
-    , Amcss.Css.selector [ wrapDisable ]
+    , Amcss.Component.propertyToSelector [ wrapDisable ]
         [ flexWrap noWrap ]
-    , Amcss.Css.selector [ wrapReverse ]
+    , Amcss.Component.propertyToSelector [ wrapReverse ]
         [ flexWrap Css.wrapReverse ]
-    , Amcss.Css.selector [ spacingDisable ]
+    , Amcss.Component.propertyToSelector [ spacingDisable ]
         [ StyleGuide.lobotomizedOwl [ margin zero ] ]
-    , Amcss.Css.selector [ homogenousEnable, directionRow ]
+    , Amcss.Component.propertyToSelector [ homogenousEnable, directionRow ]
         [ StyleGuide.lobotomizedOwl
             [ Css.property "border-left" "none !important"
             , important (borderTopLeftRadius zero)
@@ -106,7 +105,7 @@ css =
                 ]
             ]
         ]
-    , Amcss.Css.selector [ homogenousEnable, directionColumn ]
+    , Amcss.Component.propertyToSelector [ homogenousEnable, directionColumn ]
         [ StyleGuide.lobotomizedOwl
             [ Css.property "border-top" "none !important"
             , important (borderTopLeftRadius zero)

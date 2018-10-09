@@ -1,7 +1,6 @@
 module Amcss.Component.Button exposing (component, css, disabled, displayGhost, displayNormal, roundedAll, roundedNone, roundedSome, sizeLarge, sizeMedium, sizeSmall)
 
 import Amcss.Component
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Types exposing (Component, Property)
 import Css exposing (backgroundColor, border3, borderBox, boxSizing, lineHeight, num, opacity, padding, px, solid, zero)
@@ -10,31 +9,31 @@ import Css.Global exposing (Snippet)
 
 css : List Snippet
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ border3 (px 1) solid StyleGuide.borderColorEmphasized
         , boxSizing borderBox
         , lineHeight StyleGuide.smallLineHeight
         , StyleGuide.baseTextColor
         ]
-    , Amcss.Css.selectorNotExist [ disabled ]
+    , Amcss.Component.propertyToSelectorNotExist [ disabled ]
         [ StyleGuide.interactable ]
-    , Amcss.Css.selector [ disabled ]
+    , Amcss.Component.propertyToSelector [ disabled ]
         [ opacity (num 0.5) ]
-    , Amcss.Css.selector [ sizeSmall ]
+    , Amcss.Component.propertyToSelector [ sizeSmall ]
         [ padding StyleGuide.spacing ]
-    , Amcss.Css.selector [ sizeMedium ]
+    , Amcss.Component.propertyToSelector [ sizeMedium ]
         [ padding StyleGuide.spacingMedium ]
-    , Amcss.Css.selector [ sizeLarge ]
+    , Amcss.Component.propertyToSelector [ sizeLarge ]
         [ padding StyleGuide.spacingLarge ]
-    , Amcss.Css.selector [ displayNormal ]
+    , Amcss.Component.propertyToSelector [ displayNormal ]
         [ backgroundColor StyleGuide.white ]
-    , Amcss.Css.selector [ displayGhost ]
+    , Amcss.Component.propertyToSelector [ displayGhost ]
         [ Css.property "background" "none" ]
-    , Amcss.Css.selector [ roundedNone ]
+    , Amcss.Component.propertyToSelector [ roundedNone ]
         [ Css.borderRadius zero ]
-    , Amcss.Css.selector [ roundedSome ]
+    , Amcss.Component.propertyToSelector [ roundedSome ]
         [ Css.borderRadius StyleGuide.borderRadius ]
-    , Amcss.Css.selector [ roundedAll ]
+    , Amcss.Component.propertyToSelector [ roundedAll ]
         [ Css.borderRadius (px 999) ]
     ]
 

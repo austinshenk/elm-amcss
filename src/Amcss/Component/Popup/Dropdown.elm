@@ -2,7 +2,6 @@ module Amcss.Component.Popup.Dropdown exposing (css, dropdown, dropdownRight)
 
 import Amcss.Component
 import Amcss.Component.Popup as Popup exposing (Align(..), Anchor(..), Model, Msg(..), Position(..), Properties)
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html
 import Amcss.Types
@@ -14,16 +13,16 @@ import Html.Styled.Events exposing (onClick)
 
 
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ borderRadius StyleGuide.borderRadius
         , border3 (px 1) solid StyleGuide.black
         , backgroundColor StyleGuide.white
         , padding2 StyleGuide.spacing zero
         , position relative
         ]
-    , Amcss.Css.selector [ Popup.positionBottom ]
+    , Amcss.Component.propertyToSelector [ Popup.positionBottom ]
         [ children
-            [ Amcss.Css.component component
+            [ Amcss.Component.componentToSelector component
                 [ top StyleGuide.spacing ]
             ]
         ]

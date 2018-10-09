@@ -1,7 +1,6 @@
 module Amcss.Component.Form exposing (css, input, select)
 
 import Amcss.Component
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Types exposing (Component, Property)
 import Css exposing (absolute, after, backgroundColor, border3, bottom, checked, color, cursor, focus, fontSize, height, hex, hover, important, left, lineHeight, margin3, none, num, opacity, outline, padding, pointer, position, px, relative, right, solid, top, width, zero)
@@ -13,15 +12,15 @@ css =
     [ form
         [ margin3 zero zero StyleGuide.spacing ]
     , each
-        [ Amcss.Css.selector [ typeOfRadio ]
-        , Amcss.Css.selector [ typeOfCheckbox ]
-        , Amcss.Css.component select
+        [ Amcss.Component.propertyToSelector [ typeOfRadio ]
+        , Amcss.Component.propertyToSelector [ typeOfCheckbox ]
+        , Amcss.Component.componentToSelector select
         , label
         ]
         [ cursor pointer ]
     , each
-        [ Amcss.Css.component input
-        , Amcss.Css.component select
+        [ Amcss.Component.componentToSelector input
+        , Amcss.Component.componentToSelector select
         ]
         [ backgroundColor StyleGuide.white
         , border3 (px 1) solid StyleGuide.borderColor
@@ -34,8 +33,8 @@ css =
         , Css.property "transition" "background .2s, border-color .2s"
         ]
     , each
-        [ Amcss.Css.selector [ typeOfRadio ]
-        , Amcss.Css.selector [ typeOfCheckbox ]
+        [ Amcss.Component.propertyToSelector [ typeOfRadio ]
+        , Amcss.Component.propertyToSelector [ typeOfCheckbox ]
         ]
         [ Css.property "-webkit-appearance" "none"
         , width (Css.rem 2)
@@ -56,7 +55,7 @@ css =
         , checked
             [ after [ opacity (num 1) ] ]
         ]
-    , Amcss.Css.selector [ typeOfRadio ]
+    , Amcss.Component.propertyToSelector [ typeOfRadio ]
         [ Css.borderRadius (px 999)
         , checked
             [ after
@@ -64,8 +63,8 @@ css =
             ]
         ]
     , each
-        [ Amcss.Css.selectorNotExist [ inputDisabled ]
-        , Amcss.Css.selectorNotExist [ selectDisabled ]
+        [ Amcss.Component.propertyToSelectorNotExist [ inputDisabled ]
+        , Amcss.Component.propertyToSelectorNotExist [ selectDisabled ]
         ]
         [ hover
             [ backgroundColor (hex "cfcfcf")
@@ -79,13 +78,13 @@ css =
             ]
         ]
     , each
-        [ Amcss.Css.selector [ inputDisabled ]
-        , Amcss.Css.selector [ selectDisabled ]
+        [ Amcss.Component.propertyToSelector [ inputDisabled ]
+        , Amcss.Component.propertyToSelector [ selectDisabled ]
         ]
         [ opacity (num 0.5) ]
     , each
-        [ Amcss.Css.selector [ inputRequired ]
-        , Amcss.Css.selector [ selectRequired ]
+        [ Amcss.Component.propertyToSelector [ inputRequired ]
+        , Amcss.Component.propertyToSelector [ selectRequired ]
         ]
         [ Css.borderColor StyleGuide.borderColorRequired
         , hover [ Css.borderColor StyleGuide.borderColorEmphasized ]

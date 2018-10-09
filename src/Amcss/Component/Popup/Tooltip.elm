@@ -12,7 +12,6 @@ module Amcss.Component.Popup.Tooltip exposing
 
 import Amcss.Component
 import Amcss.Component.Popup as Popup exposing (..)
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Html exposing (..)
 import Css exposing (..)
@@ -23,7 +22,7 @@ import Html.Styled.Events exposing (..)
 
 
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ borderRadius StyleGuide.borderRadius
         , backgroundColor StyleGuide.black
         , color StyleGuide.white
@@ -31,9 +30,9 @@ css =
         , Css.property "pointer-events" "none"
         , position relative
         ]
-    , Amcss.Css.selector [ Popup.positionTop ]
+    , Amcss.Component.propertyToSelector [ Popup.positionTop ]
         [ children
-            [ Amcss.Css.component component
+            [ Amcss.Component.componentToSelector component
                 [ bottom StyleGuide.spacing
                 , after
                     [ top (pct 100)
@@ -43,9 +42,9 @@ css =
                 ]
             ]
         ]
-    , Amcss.Css.selector [ Popup.positionBottom ]
+    , Amcss.Component.propertyToSelector [ Popup.positionBottom ]
         [ children
-            [ Amcss.Css.component component
+            [ Amcss.Component.componentToSelector component
                 [ top StyleGuide.spacing
                 , after
                     [ bottom (pct 100)
@@ -55,9 +54,9 @@ css =
                 ]
             ]
         ]
-    , each [ Amcss.Css.selector [ Popup.positionTop ], Amcss.Css.selector [ Popup.positionBottom ] ]
+    , each [ Amcss.Component.propertyToSelector [ Popup.positionTop ], Amcss.Component.propertyToSelector [ Popup.positionBottom ] ]
         [ children
-            [ Amcss.Css.component component
+            [ Amcss.Component.componentToSelector component
                 [ after
                     [ Css.property "content" "''"
                     , position absolute

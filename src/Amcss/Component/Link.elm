@@ -1,7 +1,6 @@
 module Amcss.Component.Link exposing (active, component, css)
 
 import Amcss.Component exposing (attribute, element, property)
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Amcss.Types exposing (Component, Property)
 import Css exposing (backgroundColor, borderBottom3, borderBottomColor, borderBox, borderTopLeftRadius, borderTopRightRadius, boxSizing, display, focus, hex, hover, inlineBlock, minHeight, minWidth, none, padding3, px, solid, textDecoration, zero)
@@ -10,7 +9,7 @@ import Css.Global exposing (Snippet, each)
 
 css : List Snippet
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ borderBottom3 (px 2) solid StyleGuide.borderColor
         , borderTopLeftRadius (px 2)
         , borderTopRightRadius (px 2)
@@ -28,11 +27,11 @@ css =
         , focus
             [ borderBottomColor (hex "101010") ]
         ]
-    , Amcss.Css.selector [ active ]
+    , Amcss.Component.propertyToSelector [ active ]
         [ borderBottomColor StyleGuide.black ]
     , each
-        [ Amcss.Css.selector [ hrefNothing ]
-        , Amcss.Css.selector [ hrefPound ]
+        [ Amcss.Component.propertyToSelector [ hrefNothing ]
+        , Amcss.Component.propertyToSelector [ hrefPound ]
         ]
         [ backgroundColor (hex "ff0000")
         , Css.property "border" "none"

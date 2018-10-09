@@ -11,14 +11,13 @@ module Amcss.Component.Flyover.Modal exposing
 
 import Amcss.Component
 import Amcss.Component.Flyover as Flyover
-import Amcss.Css
 import Amcss.Css.StyleGuide as StyleGuide
 import Css exposing (..)
 import Css.Global exposing (..)
 
 
 css =
-    [ Amcss.Css.component component
+    [ Amcss.Component.componentToSelector component
         [ backgroundColor StyleGuide.white
         , maxWidth (px 1000)
         , width (vw 100)
@@ -27,43 +26,43 @@ css =
         , Css.property "transition" "transform .2s"
         , overflowX hidden
         ]
-    , Amcss.Css.selector [ alignLeft ]
+    , Amcss.Component.propertyToSelector [ alignLeft ]
         [ left zero ]
-    , Amcss.Css.selector [ alignCenter ]
+    , Amcss.Component.propertyToSelector [ alignCenter ]
         [ left (pct 50) ]
-    , Amcss.Css.selector [ alignRight ]
+    , Amcss.Component.propertyToSelector [ alignRight ]
         [ right zero ]
-    , Amcss.Css.selector [ Flyover.invisible ]
+    , Amcss.Component.propertyToSelector [ Flyover.invisible ]
         [ children
-            [ Amcss.Css.selector [ enterTop ]
+            [ Amcss.Component.propertyToSelector [ enterTop ]
                 [ transform (translateY (pct -100)) ]
-            , Amcss.Css.selector [ enterBottom ]
+            , Amcss.Component.propertyToSelector [ enterBottom ]
                 [ transform (translateY (pct 100)) ]
-            , Amcss.Css.selector [ enterLeft ]
+            , Amcss.Component.propertyToSelector [ enterLeft ]
                 [ transform (translateX (pct -100)) ]
-            , Amcss.Css.selector [ enterRight ]
+            , Amcss.Component.propertyToSelector [ enterRight ]
                 [ transform (translateX (pct 100)) ]
-            , Amcss.Css.selector [ alignCenter, enterTop ]
+            , Amcss.Component.propertyToSelector [ alignCenter, enterTop ]
                 [ transform (translate2 (pct -50) (pct -100)) ]
-            , Amcss.Css.selector [ alignCenter, enterBottom ]
+            , Amcss.Component.propertyToSelector [ alignCenter, enterBottom ]
                 [ transform (translate2 (pct -50) (pct 100)) ]
             , each
-                [ Amcss.Css.selector [ alignCenter, enterRight ]
-                , Amcss.Css.selector [ alignCenter, enterLeft ]
-                , Amcss.Css.selector [ alignLeft, enterRight ]
-                , Amcss.Css.selector [ alignRight, enterLeft ]
+                [ Amcss.Component.propertyToSelector [ alignCenter, enterRight ]
+                , Amcss.Component.propertyToSelector [ alignCenter, enterLeft ]
+                , Amcss.Component.propertyToSelector [ alignLeft, enterRight ]
+                , Amcss.Component.propertyToSelector [ alignRight, enterLeft ]
                 ]
                 [ transform none ]
             ]
         ]
-    , Amcss.Css.selector [ Flyover.isvisible ]
+    , Amcss.Component.propertyToSelector [ Flyover.isvisible ]
         [ children
             [ each
-                [ Amcss.Css.selector [ alignLeft ]
-                , Amcss.Css.selector [ alignRight ]
+                [ Amcss.Component.propertyToSelector [ alignLeft ]
+                , Amcss.Component.propertyToSelector [ alignRight ]
                 ]
                 [ transform none ]
-            , Amcss.Css.selector [ alignCenter ]
+            , Amcss.Component.propertyToSelector [ alignCenter ]
                 [ transform (translate2 (pct -50) zero) ]
             ]
         ]
