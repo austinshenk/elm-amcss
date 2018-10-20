@@ -4,6 +4,7 @@
 /build/css.js
 /build/index.js
 /build/index.uglified.js
-/build/index.css
-/dist/*.css
+/build/*.css
+/dist/*.gz
 /dist/*.js
+/dist/*.css
